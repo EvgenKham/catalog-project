@@ -1,0 +1,95 @@
+@import "_typography.sass"
+
+html
+  font-size: 10px
+
+ul
+  padding: 0
+
+body
+  background-color: #fff
+  font-size: 14px
+
+.wrapper
+  max-width: 192rem
+  margin: 0 auto
+  overflow: hidden
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 2rem 6.4rem
+  height: 10.4rem
+  &__logo
+    margin-right: 0rem
+  &__nav
+
+.nav
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 54rem
+  width: 100%
+  &__item
+    list-style: none
+    margin-right: 2.4rem
+    &:last-child
+      margin-right: 0px
+  &__link
+    @extend %menu-item
+    text-decoration: none
+    transition: all 0.3s
+
+.contact
+  text-decoration: none
+  color: black
+  height: 3.2rem
+  &__number
+    @extend %number
+  &__subtitle
+    font-family: Inter
+    font-weight: 400
+    font-size: 14px
+    line-height: 100%
+    letter-spacing: 0.08em
+    color: #1f2020
+    opacity: 0.3
+
+.control
+  display: flex
+  align-items: center
+  padding-left: 0
+  &__item
+    list-style: none
+    margin-right: 2.4rem
+    &:last-child
+      margin-right: 0px
+  &__btn
+    cursor: pointer
+    background-color: transparent
+    display: block
+    border: none
+    width: 2.2rem
+    height: 2rem
+    margin-right: 2.4rem
+    &:last-child
+      margin-right: 0px
+    &_search
+      background-image: url(assets/images/search.svg)
+      width: 2rem
+    &_account
+      background-image: url(assets/images/profile.svg)
+      height: 2.2rem
+    &_favorite
+      background-image: url(assets/images/heart.svg)
+      height: 1.8rem
+      background-position: center
+      background-size: cover
+    &_search
+      background-image: url(assets/images/search.svg)
+    &_cart
+      border: 1px solid black
+      cursor: pointer
+      background-color: #7BB899
+      border-radius: 2rem
