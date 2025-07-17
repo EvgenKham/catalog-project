@@ -1,30 +1,30 @@
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/Inter-Light.woff2");
+  src: url("assets/fonts/Inter-Light.ttf");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/Inter-Regular.woff2");
+  src: url("assets/fonts/Inter-Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/Inter-Medium.woff2");
+  src: url("assets/fonts/Inter-Medium.ttf");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/Inter-SemiBold.woff2");
+  src: url("assets/fonts/Inter-SemiBold.ttf");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "TT Hoves";
-  src: url("../assets/fonts/TT Hoves-Medium.ttf");
+  src: url("assets/fonts/TT Hoves-Medium.ttf");
   font-weight: 500;
   font-style: normal;
 }
@@ -76,6 +76,7 @@ body {
 .header__logo {
   margin-right: 0rem;
 }
+
 .nav {
   display: flex;
   justify-content: center;
@@ -156,4 +157,83 @@ body {
   cursor: pointer;
   background-color: #7BB899;
   border-radius: 2rem;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  max-width: 192rem;
+  height: 56rem;
+  background-image: url(assets/images/slider-bg.png);
+}
+.slider__content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21.4rem;
+  padding: 0 5rem;
+  max-width: 192rem;
+  width: 100%;
+  padding-top: 10rem;
+}
+
+.arrow_btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.slider__text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 472px;
+  width: 100%;
+  color: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.slider__text_title {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 7.2rem;
+  line-height: 66%;
+  letter-spacing: -0.04em;
+  margin-bottom: 2.4rem;
+}
+.slider__text_subtitle {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.breadcrumbs {
+  display: flex;
+  max-width: 192rem;
+  width: 100%;
+  margin-left: 12.4rem;
+  padding-top: 2rem;
+}
+.breadcrumbs__item {
+  margin-right: 1.9rem;
+  list-style: none;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 100%;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.breadcrumbs__item:last-child {
+  margin-right: 0rem;
 }/*# sourceMappingURL=style.css.map */

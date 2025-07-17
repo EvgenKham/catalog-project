@@ -23,7 +23,6 @@ body
   height: 10.4rem
   &__logo
     margin-right: 0rem
-  &__nav
 
 .nav
   display: flex
@@ -93,3 +92,73 @@ body
       cursor: pointer
       background-color: #7BB899
       border-radius: 2rem
+
+.slider
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+  align-items: center
+  max-width: 192rem
+  height: 56rem
+  background-image: url(assets/images/slider-bg.png)
+  &__content
+    display: flex
+    justify-content: space-between
+    margin-bottom: 21.4rem
+    padding: 0 5rem
+    max-width: 192rem
+    width: 100%
+    padding-top: 10rem
+
+.arrow_btn
+  cursor: pointer
+  display: flex
+  align-items: center
+  padding-top: 2rem
+
+.slider__text
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  max-width: 472px
+  width: 100%
+  color: #fff
+  user-select: none
+  &_title
+    font-family: Inter
+    font-weight: 400
+    font-size: 7.2rem
+    line-height: 66%
+    letter-spacing: -0.04em
+    margin-bottom: 2.4rem
+  &_subtitle
+    font-family: Inter
+    font-weight: 500
+    font-size: 1.6rem
+    line-height: 125%
+    letter-spacing: 0.02em
+    text-align: center
+
+.breadcrumbs
+  display: flex
+  max-width: 192rem
+  width: 100%
+  margin-left: 12.4rem
+  padding-top: 2rem
+  &__item
+    margin-right: 1.9rem
+    list-style: none
+    font-family: Inter
+    font-weight: 400
+    font-size: 1rem
+    line-height: 100%
+    letter-spacing: 0.06em
+    text-transform: uppercase
+    color: #fff
+    opacity: 0.3
+    cursor: pointer
+    &:last-child
+      margin-right: 0rem
+
+
