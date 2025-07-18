@@ -58,6 +58,10 @@ html {
   font-size: 10px;
 }
 
+p {
+  margin: 0;
+}
+
 ul {
   padding: 0;
 }
@@ -246,8 +250,50 @@ body {
 }
 
 .catalog {
+  display: flex;
   max-width: 192rem;
   width: 100%;
+  padding: 6.4rem 7.2rem;
+}
+.catalog__main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.catalog__title {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+  margin-bottom: 3.2rem;
+}
+.catalog__products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.3rem 2.4rem;
+}
+
+.count-product {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1f2020;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.sort-product {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: right;
+  color: #1f2020;
+  cursor: pointer;
 }
 
 .filter {
@@ -255,7 +301,7 @@ body {
   flex-direction: column;
   max-width: 34rem;
   gap: 0.5rem;
-  padding: 7.2rem 6.4rem;
+  margin-right: 6.2rem;
   border-radius: 1.2rem;
 }
 .filter__item {
@@ -296,6 +342,7 @@ body {
      -moz-user-select: none;
           user-select: none;
   overflow: hidden;
+  white-space: nowrap;
 }
 .filter__label:hover {
   box-shadow: 0.1rem 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
@@ -318,6 +365,72 @@ body {
   border-radius: 50%;
   background: #1f2020;
   transition: all 0.3s ease;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.8rem;
+  width: 27.8rem;
+  height: 37.6rem;
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card__image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 27.8rem;
+}
+.card__image {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.card__content {
+  padding: 0 0.6rem;
+}
+.card__name {
+  font-family: Inter;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 112%;
+  letter-spacing: 0.02em;
+  color: #1f2020;
+  margin-bottom: 1.6rem;
+}
+.card__description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__price {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 100%;
+  color: #1f2020;
+  cursor: pointer;
+}
+.card__add-to-cart {
+  visibility: hidden;
+  border-radius: 0.8rem;
+  border: none;
+  font-size: 2.6rem;
+  width: 8rem;
+  height: 3.2rem;
+  background: #7bb899;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.12);
+}
+.card:hover .card__add-to-cart {
+  visibility: visible;
 }
 
 .footer {
@@ -405,19 +518,114 @@ body {
         </div>
         <div class="catalog__main">
           <div class="catalog__title">
-            <div class="count-product"></div>412 товаров
-            <div class="sort-product"></div>сначала дорогие
+            <div class="count-product">412 товаров</div>
+            <div class="sort-product">Сначала дорогие
+              <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 7.5L8.4641 3L1.5359 3L5 7.5Z" fill="#202020"></path>
+              </svg>
+            </div>
           </div>
           <div class="catalog__products">
-            <div class="card"><img class="card__image" src="assets/images/products/ProClassic.png" alt="ProClassic">
-              <p class="card__name"></p>
-              <p class="card__price"></p>
-              <button class="card__add-to-cart"></button>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">4800 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
             </div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/Duration Home Interior Acrylic.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">6000 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/Emerald.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">5280 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/Latex Primer.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">3400 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic White.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">2800 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/SuperPaint.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">2800 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/Surface Enamel.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">2800 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/Emerald.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">5280 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/Latex Primer.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">3400 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic White.png" alt="ProClassic" loading="lazy"></div>
+              <div class="card__content">
+                <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
+                <div class="card__description">
+                  <p class="card__price">2800 ₽</p>
+                  <button class="card__add-to-cart">+</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
