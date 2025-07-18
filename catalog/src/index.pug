@@ -1,11 +1,9 @@
-- var pageTitle = 'Catalog'
-
 doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title= pageTitle
+    title = 'Catalog'
     link(href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css" rel="stylesheet")
     style
       include css/style.css
@@ -13,5 +11,5 @@ html(lang="en")
     .wrapper
       include modules/header
       include modules/slider
-      h1 Pug - node template engine
+      include modules/catalog
       include modules/footer

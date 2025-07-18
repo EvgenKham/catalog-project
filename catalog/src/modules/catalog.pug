@@ -1,0 +1,29 @@
+section.catalog
+  .filter
+    each item in [{id: 'new', label: 'Новинки'}, {id: 'in-stock', label: 'Есть в наличии'}, {id: 'contract', label: 'Контрактные'}, {id: 'exclusive', label: 'Эксклюзивные'}, {id: 'sale', label: 'Распродажа'}]
+      .filter__item
+        input.filter__input(
+          type="radio"
+          id=item.id
+          name="category"
+          value=item.id
+          checked=(item.id === 'new'))
+        label.filter__label(for=item.id)
+          span.filter__checkmark
+          span.filter__text= item.label
+  .catalog__main
+    .catalog__title
+      .count-product
+      | 412 товаров
+      .sort-product
+      | сначала дорогие
+    .catalog__products
+      .card
+        img(src="assets/images/products/ProClassic.png", alt="ProClassic").card__image
+        p.card__name
+        p.card__price
+        button.card__add-to-cart
+      .card
+      .card
+      .card
+      .card
