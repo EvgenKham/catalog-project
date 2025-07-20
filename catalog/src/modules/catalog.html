@@ -25,110 +25,119 @@
   <div class="catalog__main">
     <div class="catalog__title">
       <div class="count-product">412 товаров</div>
-      <div class="sort-product">Сначала дорогие
-        <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 7.5L8.4641 3L1.5359 3L5 7.5Z" fill="#202020"></path>
-        </svg>
+      <div class="sort-dropdown">
+        <div class="sort-dropdown__selected"><span class="sort-dropdown__current">Сначала дорогие</span>
+          <svg class="sort-dropdown__icon" width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 7.5L8.4641 3L1.5359 3L5 7.5Z" fill="#202020"></path>
+          </svg>
+        </div>
+        <ul class="sort-dropdown__list">
+          <li class="sort-dropdown__item sort-dropdown__item_selected" data-value="price-desc">Сначала дорогие</li>
+          <li class="sort-dropdown__item" data-value="price-asc">Сначала недорогие</li>
+          <li class="sort-dropdown__item" data-value="popular">Сначала популярные</li>
+          <li class="sort-dropdown__item" data-value="newest">Сначала новые</li>
+        </ul>
       </div>
+      <div class="dropdown-overlay"></div>
     </div>
     <div class="catalog__products">
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
             <p class="card__price">4800 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/Duration Home Interior Acrylic.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/Duration Home Interior Acrylic.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
             <p class="card__price">6000 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/Emerald.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/Emerald.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
             <p class="card__price">5280 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/Latex Primer.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/Latex Primer.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
             <p class="card__price">3400 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic White.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic White.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
             <p class="card__price">2800 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/SuperPaint.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/SuperPaint.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
-            <p class="card__price">2800 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <p class="card__price">2280 ₽</p>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/Surface Enamel.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/Surface Enamel.svg" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
-            <p class="card__price">2800 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <p class="card__price">5370 ₽</p>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/Emerald.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/Emerald.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
             <p class="card__price">5280 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/Latex Primer.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic White.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
-            <p class="card__price">3400 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <p class="card__price">2890 ₽</p>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic White.png" alt="ProClassic" loading="lazy"/></div>
+        <div class="card__image-container"><img class="card__image" src="assets/images/products/ProClassic.png" alt="image product" loading="lazy"/></div>
         <div class="card__content">
           <p class="card__name">Краска Wallquest, Brownsone MS90102</p>
           <div class="card__description">
-            <p class="card__price">2800 ₽</p>
-            <button class="card__add-to-cart">+</button>
+            <p class="card__price">4800 ₽</p>
+            <button class="card__add-to-cart" type="button" aria-label="Add to cart">+</button>
           </div>
         </div>
       </div>
