@@ -102,3 +102,95 @@ btnCloseFilter.addEventListener('click', (e) => {
     body.classList.toggle('stop-scroll');
   }
 })
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cartButton = document.querySelector('.control__btn_cart');
+  // const cartOverlay = document.querySelector('.cart-overlay');
+  const overlay = document.querySelector('.overlay');
+  const cartSidebar = document.querySelector('.cart-sidebar');
+  const cartClose = document.querySelector('.cart-close');
+
+  // Открытие корзины
+  cartButton.addEventListener('click', (e) => {
+    if (e.target === burger || e.target.closest('.control__btn_cart')){
+      body.classList.toggle('cart-open');
+      body.classList.toggle('stop-scroll');
+    }
+  });
+
+  // Закрытие корзины по крестику
+  cartClose.addEventListener('click', (e) => {
+    if (e.target === cartClose || e.target.closest('.cart-close')){
+      body.classList.remove('cart-open');
+      wrapper.classList.remove('menu__active');
+      body.classList.toggle('stop-scroll');
+    }
+  })
+
+  // Закрытие корзины по затемненному фону
+  overlay.addEventListener('click', (e) => {
+    if (e.target === cartClose || e.target.closest('.cart-close')){
+      body.classList.remove('cart-open');
+      wrapper.classList.remove('menu__active');
+      body.classList.toggle('stop-scroll');
+    }
+  })
+
+  // Управление количеством товаров
+  document.querySelectorAll('.cart-item__increase').forEach(button => {
+    button.addEventListener('click', function() {
+      const quantityElement = this.previousElementSibling;
+      quantityElement.textContent = parseInt(quantityElement.textContent) + 1;
+      updateCartTotal();
+    });
+  });
+
+  document.querySelectorAll('.cart-item__decrease').forEach(button => {
+    button.addEventListener('click', function() {
+      const quantityElement = this.nextElementSibling;
+      const currentQuantity = parseInt(quantityElement.textContent);
+      if (currentQuantity > 1) {
+        quantityElement.textContent = currentQuantity - 1;
+        updateCartTotal();
+      }
+    });
+  });
+
+  // Удаление товара
+  document.querySelectorAll('.cart-item__remove').forEach(button => {
+    button.addEventListener('click', function() {
+      this.closest('.cart-item').remove();
+      updateCartTotal();
+      updateCartCount();
+    });
+  });
+
+  // Очистка корзины
+  document.querySelector('.cart-clear').addEventListener('click', function() {
+    document.querySelector('.cart-items').innerHTML = '';
+    updateCartTotal();
+    updateCartCount();
+  });
+
+  // Обновление итоговой суммы
+  function updateCartTotal() {
+    let total = 0;
+    document.querySelectorAll('.cart-item').forEach(item => {
+      const price = parseInt(item.querySelector('.cart-item__price').textContent.replace(/\D/g, ''));
+      const quantity = parseInt(item.querySelector('.cart-item__quantity').textContent);
+      total += price * quantity;
+    });
+
+    document.querySelector('.cart-total__price').textContent =
+      new Intl.NumberFormat('ru-RU').format(total) + ' ₽';
+  }
+
+  // Обновление счетчика товаров
+  function updateCartCount() {
+    const count = document.querySelectorAll('.cart-item').length;
+    document.querySelector('.cart-count').textContent =
+      count + ' ' + (count % 10 === 1 && count % 100 !== 11 ? 'товар' :
+                     count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 10 || count % 100 >= 20) ? 'товара' : 'товаров');
+  }
+});

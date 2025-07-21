@@ -1,0 +1,38 @@
+mixin cart-item(image, name, price, quantity)
+  .cart-item
+    .cart-item__image
+      img(src=`assets/images/products/${image}` alt=name)
+    .cart-item__info
+      .cart-item__name= name
+      .cart-item__price= price + ' ₽'
+    .cart-item__controls
+      button.cart-item__decrease(type="button") -
+      span.cart-item__quantity= quantity
+      button.cart-item__increase(type="button") +
+    button.cart-item__remove(type="button")
+      svg(width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2")
+
+.cart-overlay
+.cart-sidebar
+  .cart-header
+    h2.cart-title Корзина
+    .cart-close
+      svg(width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2")
+
+  .cart-body
+    .cart-toolbar
+      span.cart-count 3 товара
+      button.cart-clear(type="button") Очистить список
+
+    .cart-items
+      +cart-item('ProClassic.png', 'Краска Wallquest, Brownsone MS90102', 4800, 1)
+      +cart-item('SuperPaint.png', 'Краска Wallquest, Brownsone MS90102', 2280, 2)
+      +cart-item('Emerald.png', 'Краска Wallquest, Brownsone MS90102', 5280, 1)
+
+    .cart-footer
+      .cart-total
+        span.cart-total__text Итого
+        span.cart-total__price 14 640 ₽
+      button.cart-checkout(type="button") Оформить заказ
