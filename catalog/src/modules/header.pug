@@ -1,4 +1,8 @@
 header.header
+  .burger
+    span
+    span
+    span
   a(href="#").header__logo
     img(src="assets/images/logo.svg", alt="Logo")
   nav.header__nav
@@ -13,6 +17,10 @@ header.header
         a(href="").nav__link Советы
       li.nav__item
         a(href="").nav__link Найти магазин
+    .btn-close.btn-close_menu
+      svg(viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M30 10L10 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+        path(d="M10 10L30 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
   a(href="tel:+74952217769" target="_black").contact
     .contact__number +7 (495) 221-77-69
     .contact__subtitle Заказать звонок

@@ -4,7 +4,7 @@ const selected = sort.querySelector('.sort-dropdown__selected');
 const current = sort.querySelector('.sort-dropdown__current');
 const list = sort.querySelector('.sort-dropdown__list');
 const items = sort.querySelectorAll('.sort-dropdown__item');
-const overlay = document.querySelector('.dropdown-overlay');
+const overlay = document.querySelector('.overlay');
 
 // Обработчик клика по выбранному элементу
 selected.addEventListener('click', (e) => {
@@ -41,3 +41,64 @@ items.forEach(item => {
 function sortProducts(type) {
   console.log('Сортировка по:', type);
 }
+
+
+const menu = document.querySelector('.header__nav');
+const menuItem = document.querySelectorAll('.nav__item');
+const burger = document.querySelector('.burger');
+const wrapper = document.querySelector('.wrapper');
+const body = document.body;
+const btnCloseMenu = document.querySelector('.btn-close_menu')
+
+burger.addEventListener('click', (e) => {
+  if (e.target === burger || e.target.closest('.burger')){
+    menu.classList.toggle('header__nav_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+});
+
+menuItem.forEach(item => {
+  item.addEventListener('click', () => {
+    menu.classList.toggle('header__nav_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  })
+});
+
+btnCloseMenu.addEventListener('click', (e) => {
+  if (e.target === btnCloseMenu || e.target.closest('.btn-close_menu')){
+    menu.classList.toggle('header__nav_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+})
+
+const filter = document.querySelector('.filter-container');
+const filterItem = document.querySelectorAll('.filter__item');
+const filterMobileButton = document.querySelector('.filter-mobile__button');
+const btnCloseFilter = document.querySelector('.btn-close_filter')
+
+filterMobileButton.addEventListener('click', (e) => {
+  if (e.target === filterMobileButton || e.target.closest('.filter-mobile__button')){
+    filter.classList.toggle('filter-container_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+});
+
+filterItem.forEach(item => {
+  item.addEventListener('click', () => {
+    filter.classList.remove('filter-container_active');
+    wrapper.classList.remove('menu__active');
+    body.classList.remove('stop-scroll');
+  })
+});
+
+btnCloseFilter.addEventListener('click', (e) => {
+  if (e.target === btnCloseFilter || e.target.closest('.btn-close_filter')){
+    filter.classList.toggle('filter-container_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+})

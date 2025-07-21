@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>= 'Catalog'</title>
     <link href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css" rel="stylesheet">
-    <style>@charset "UTF-8";
-@font-face {
+    <style>@font-face {
   font-family: "Inter";
   src: url("assets/fonts/Inter-Light.ttf");
   font-weight: 300;
@@ -67,6 +66,10 @@ ul {
   padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 body {
   background-color: #fff;
   font-size: 14px;
@@ -82,7 +85,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 6.4rem;
+  padding: 2rem 5%;
   height: 10.4rem;
 }
 .header__logo {
@@ -106,6 +109,14 @@ body {
 .nav__link {
   text-decoration: none;
   transition: all 0.3s;
+}
+
+.burger {
+  display: none;
+}
+
+.btn-close {
+  display: none;
 }
 
 .contact {
@@ -264,7 +275,7 @@ body {
 .catalog__title {
   display: flex;
   justify-content: space-between;
-  padding: 1.2rem 0;
+  padding: 0.5rem 0;
   margin-bottom: 3.2rem;
 }
 .catalog__products {
@@ -284,6 +295,7 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  align-content: center;
 }
 
 .sort-dropdown {
@@ -352,12 +364,12 @@ body {
   transform: translateY(0);
 }
 
-.dropdown-overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100lvw;
+  height: 100lvh;
   background: #000;
   opacity: 0.7;
   z-index: 1000;
@@ -366,7 +378,7 @@ body {
   transition: all 0.3s linear;
 }
 
-.sort-dropdown__active ~ .dropdown-overlay {
+.sort-dropdown__active ~ .overlay {
   display: block;
 }
 
@@ -441,6 +453,24 @@ body {
   transition: all 0.3s ease;
 }
 
+.filter-mobile {
+  display: none;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.6rem;
+}
+.filter-mobile__button {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: right;
+  color: #1f2020;
+  border: none;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -458,6 +488,7 @@ body {
   align-items: center;
   width: 100%;
   height: 27.8rem;
+  overflow: hidden;
 }
 .card__image {
   -o-object-fit: contain;
@@ -514,15 +545,208 @@ body {
   background-color: #000;
 }
 
-/* Оверлей (затемнение + блокировка кликов) */
-/* Дропдаун должен быть выше оверлея */
-/* Стили для открытого списка */
-/* Если меню открыто, показываем список и оверлей *//*# sourceMappingURL=style.css.map */
+@media (max-width: 1200px) {
+  .header__nav {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    left: 0;
+    border-radius: 2rem;
+    transform: translateY(170%);
+    height: 80lvh;
+    padding-bottom: 9rem;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: 0.5s ease-in-out;
+  }
+  .header__nav_active {
+    transform: translateY(70%);
+    transition: 0.5s ease-in-out;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24.6rem;
+  }
+  .nav__link {
+    font-size: 2.4rem;
+    line-height: 152%;
+    letter-spacing: 0.16em;
+  }
+  .nav__item {
+    margin: 0;
+    align-items: center;
+  }
+  .burger {
+    display: block;
+    width: 2.4rem;
+    z-index: 100;
+    opacity: 1;
+    transition: 0.3s all;
+    cursor: pointer;
+  }
+  .burger span {
+    display: block;
+    height: 0.2rem;
+    width: 100%;
+    background: black;
+    margin-bottom: 0.4rem;
+  }
+  .burger span:last-child {
+    margin-bottom: 0;
+  }
+  .btn-close {
+    display: block;
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+  .menu__active ~ .overlay {
+    display: block;
+  }
+  .stop-scroll {
+    overflow: hidden;
+  }
+}
+@media (max-width: 1000px) {
+  .card {
+    width: 15.6rem;
+    height: 27rem;
+  }
+  .card__content {
+    padding-bottom: 0.5rem;
+  }
+  .card__image-container {
+    height: 27rem;
+  }
+  .card__image {
+    width: 100%;
+    height: 100%;
+  }
+  .card__add-to-cart {
+    visibility: visible;
+    border-radius: 0.6rem;
+    width: 4rem;
+    height: 2.4rem;
+    background: #f2f2f2;
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 750px) {
+  .contact {
+    display: none;
+  }
+  .count-product {
+    display: none;
+  }
+  .catalog {
+    display: flex;
+    max-width: 192rem;
+    width: 100%;
+    padding: 4rem 2.4rem;
+  }
+  .catalog__products {
+    gap: 4.3rem 1.5rem;
+  }
+  .filter-mobile {
+    display: block;
+  }
+  .filter-container {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    left: 0;
+    border-radius: 2rem;
+    transform: translateY(30%);
+    height: 80lvh;
+    padding-bottom: 9rem;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: 0.5s ease-in-out;
+  }
+  .filter-container_active {
+    transform: translateY(-70%);
+    transition: 0.5s ease-in-out;
+  }
+}
+@media (max-width: 650px) {
+  .control__btn_search {
+    display: none;
+  }
+  .control__item:nth-child(1) {
+    margin: 0;
+  }
+}
+@media (max-width: 600px) {
+  .control__btn_account {
+    display: none;
+  }
+  .control__item:nth-child(2) {
+    margin: 0;
+  }
+  .slider {
+    background-image: none;
+    height: 10rem;
+    padding: 0 2.4rem;
+    margin: 4.8rem 0;
+  }
+  .slider__content {
+    padding: 0;
+    margin: 0;
+  }
+  .slider__arrow_left {
+    display: none;
+  }
+  .slider__arrow_right {
+    display: none;
+  }
+  .slider__text {
+    margin: 4.8rem 0;
+    align-items: flex-start;
+  }
+  .slider__text_subtitle {
+    display: none;
+  }
+  .slider__text_title {
+    color: #1f2020;
+  }
+  .breadcrumbs {
+    padding: 0;
+    margin-left: 0;
+  }
+  .breadcrumbs__item {
+    color: #1f2020;
+  }
+  .filter-container {
+    transform: translateY(75%);
+  }
+  .filter-container_active {
+    transform: translateY(-15%);
+  }
+}
+@media (max-width: 550px) {
+  .control__btn_favorite {
+    display: none;
+  }
+  .control__item:nth-child(3) {
+    margin: 0;
+  }
+}/*# sourceMappingURL=style.css.map */
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <header class="header"><a class="header__logo" href="#"><img src="assets/images/logo.svg" alt="Logo"></a>
+      <header class="header">
+        <div class="burger"><span></span><span></span><span></span></div><a class="header__logo" href="#"><img src="assets/images/logo.svg" alt="Logo"></a>
         <nav class="header__nav">
           <ul class="nav">
             <li class="nav__item"><a class="nav__link" href="">Продукты</a></li>
@@ -531,6 +755,12 @@ body {
             <li class="nav__item"><a class="nav__link" href="">Советы</a></li>
             <li class="nav__item"><a class="nav__link" href="">Найти магазин</a></li>
           </ul>
+          <div class="btn-close btn-close_menu">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 10L10 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M10 10L30 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
         </nav><a class="contact" href="tel:+74952217769" target="_black">
           <div class="contact__number">+7 (495) 221-77-69</div>
           <div class="contact__subtitle">Заказать звонок</div></a>
@@ -573,30 +803,41 @@ body {
         </div>
       </section>
       <section class="catalog">
-        <div class="filter">
-          <div class="filter__item">
-            <input class="filter__input" type="radio" id="new" name="category" value="new" checked>
-            <label class="filter__label" for="new"><span class="filter__checkmark"></span><span class="filter__text">Новинки</span></label>
+        <div class="filter-container">
+          <div class="filter">
+            <div class="filter__item">
+              <input class="filter__input" type="radio" id="new" name="category" value="new" checked>
+              <label class="filter__label" for="new"><span class="filter__checkmark"></span><span class="filter__text">Новинки</span></label>
+            </div>
+            <div class="filter__item">
+              <input class="filter__input" type="radio" id="in-stock" name="category" value="in-stock">
+              <label class="filter__label" for="in-stock"><span class="filter__checkmark"></span><span class="filter__text">Есть в наличии</span></label>
+            </div>
+            <div class="filter__item">
+              <input class="filter__input" type="radio" id="contract" name="category" value="contract">
+              <label class="filter__label" for="contract"><span class="filter__checkmark"></span><span class="filter__text">Контрактные</span></label>
+            </div>
+            <div class="filter__item">
+              <input class="filter__input" type="radio" id="exclusive" name="category" value="exclusive">
+              <label class="filter__label" for="exclusive"><span class="filter__checkmark"></span><span class="filter__text">Эксклюзивные</span></label>
+            </div>
+            <div class="filter__item">
+              <input class="filter__input" type="radio" id="sale" name="category" value="sale">
+              <label class="filter__label" for="sale"><span class="filter__checkmark"></span><span class="filter__text">Распродажа</span></label>
+            </div>
           </div>
-          <div class="filter__item">
-            <input class="filter__input" type="radio" id="in-stock" name="category" value="in-stock">
-            <label class="filter__label" for="in-stock"><span class="filter__checkmark"></span><span class="filter__text">Есть в наличии</span></label>
-          </div>
-          <div class="filter__item">
-            <input class="filter__input" type="radio" id="contract" name="category" value="contract">
-            <label class="filter__label" for="contract"><span class="filter__checkmark"></span><span class="filter__text">Контрактные</span></label>
-          </div>
-          <div class="filter__item">
-            <input class="filter__input" type="radio" id="exclusive" name="category" value="exclusive">
-            <label class="filter__label" for="exclusive"><span class="filter__checkmark"></span><span class="filter__text">Эксклюзивные</span></label>
-          </div>
-          <div class="filter__item">
-            <input class="filter__input" type="radio" id="sale" name="category" value="sale">
-            <label class="filter__label" for="sale"><span class="filter__checkmark"></span><span class="filter__text">Распродажа</span></label>
+          <div class="btn-close btn-close_filter">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 10L10 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M10 10L30 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
           </div>
         </div>
         <div class="catalog__main">
           <div class="catalog__title">
+            <div class="filter-mobile">
+              <div class="filter-mobile__button">Фильтры</div>
+            </div>
             <div class="count-product">412 товаров</div>
             <div class="sort-dropdown">
               <div class="sort-dropdown__selected"><span class="sort-dropdown__current">Сначала дорогие</span>
@@ -611,7 +852,7 @@ body {
                 <li class="sort-dropdown__item" data-value="newest">Сначала новые</li>
               </ul>
             </div>
-            <div class="dropdown-overlay"></div>
+            <div class="overlay"></div>
           </div>
           <div class="catalog__products">
                   <div class="card">
@@ -719,6 +960,7 @@ body {
       </section>
       <footer class="footer"></footer>
     </div>
+    <div class="overlay"></div>
     <script type="module" src="js/script.js"></script>
   </body>
 </html>

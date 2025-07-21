@@ -1,29 +1,40 @@
 
 <section class="catalog">
-  <div class="filter">
-    <div class="filter__item">
-      <input class="filter__input" type="radio" id="new" name="category" value="new" checked="checked"/>
-      <label class="filter__label" for="new"><span class="filter__checkmark"></span><span class="filter__text">Новинки</span></label>
+  <div class="filter-container">
+    <div class="filter">
+      <div class="filter__item">
+        <input class="filter__input" type="radio" id="new" name="category" value="new" checked="checked"/>
+        <label class="filter__label" for="new"><span class="filter__checkmark"></span><span class="filter__text">Новинки</span></label>
+      </div>
+      <div class="filter__item">
+        <input class="filter__input" type="radio" id="in-stock" name="category" value="in-stock"/>
+        <label class="filter__label" for="in-stock"><span class="filter__checkmark"></span><span class="filter__text">Есть в наличии</span></label>
+      </div>
+      <div class="filter__item">
+        <input class="filter__input" type="radio" id="contract" name="category" value="contract"/>
+        <label class="filter__label" for="contract"><span class="filter__checkmark"></span><span class="filter__text">Контрактные</span></label>
+      </div>
+      <div class="filter__item">
+        <input class="filter__input" type="radio" id="exclusive" name="category" value="exclusive"/>
+        <label class="filter__label" for="exclusive"><span class="filter__checkmark"></span><span class="filter__text">Эксклюзивные</span></label>
+      </div>
+      <div class="filter__item">
+        <input class="filter__input" type="radio" id="sale" name="category" value="sale"/>
+        <label class="filter__label" for="sale"><span class="filter__checkmark"></span><span class="filter__text">Распродажа</span></label>
+      </div>
     </div>
-    <div class="filter__item">
-      <input class="filter__input" type="radio" id="in-stock" name="category" value="in-stock"/>
-      <label class="filter__label" for="in-stock"><span class="filter__checkmark"></span><span class="filter__text">Есть в наличии</span></label>
-    </div>
-    <div class="filter__item">
-      <input class="filter__input" type="radio" id="contract" name="category" value="contract"/>
-      <label class="filter__label" for="contract"><span class="filter__checkmark"></span><span class="filter__text">Контрактные</span></label>
-    </div>
-    <div class="filter__item">
-      <input class="filter__input" type="radio" id="exclusive" name="category" value="exclusive"/>
-      <label class="filter__label" for="exclusive"><span class="filter__checkmark"></span><span class="filter__text">Эксклюзивные</span></label>
-    </div>
-    <div class="filter__item">
-      <input class="filter__input" type="radio" id="sale" name="category" value="sale"/>
-      <label class="filter__label" for="sale"><span class="filter__checkmark"></span><span class="filter__text">Распродажа</span></label>
+    <div class="btn-close btn-close_filter">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 10L10 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M10 10L30 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
     </div>
   </div>
   <div class="catalog__main">
     <div class="catalog__title">
+      <div class="filter-mobile">
+        <div class="filter-mobile__button">Фильтры</div>
+      </div>
       <div class="count-product">412 товаров</div>
       <div class="sort-dropdown">
         <div class="sort-dropdown__selected"><span class="sort-dropdown__current">Сначала дорогие</span>
@@ -38,7 +49,7 @@
           <li class="sort-dropdown__item" data-value="newest">Сначала новые</li>
         </ul>
       </div>
-      <div class="dropdown-overlay"></div>
+      <div class="overlay"></div>
     </div>
     <div class="catalog__products">
       <div class="card">

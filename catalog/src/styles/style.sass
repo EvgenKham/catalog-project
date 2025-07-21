@@ -9,6 +9,9 @@ p
 ul
   padding: 0
 
+h1,h2, h3,h4,h5,h6
+  margin: 0
+
 body
   background-color: #fff
   font-size: 14px
@@ -22,7 +25,7 @@ body
   display: flex
   justify-content: space-between
   align-items: center
-  padding: 2rem 6.4rem
+  padding: 2rem 5%
   height: 10.4rem
   &__logo
     margin-right: 0rem
@@ -42,6 +45,12 @@ body
     @extend %menu-item
     text-decoration: none
     transition: all 0.3s
+
+.burger
+  display: none
+
+.btn-close
+  display: none
 
 .contact
   text-decoration: none
@@ -176,7 +185,7 @@ body
   &__title
     display: flex
     justify-content: space-between
-    padding: 1.2rem 0
+    padding: 0.5rem 0
     margin-bottom: 3.2rem
   &__products
     display: flex
@@ -192,6 +201,7 @@ body
   text-transform: uppercase
   color: #1f2020
   user-select: none
+  align-content: center
 
 .sort-dropdown
   position: relative
@@ -249,12 +259,12 @@ body
       visibility: visible
       transform: translateY(0)
 
-.dropdown-overlay
+.overlay
   position: fixed
   top: 0
   left: 0
-  width: 100%
-  height: 100%
+  width: 100lvw
+  height: 100lvh
   background: #000
   opacity: 0.7
   z-index: 1000
@@ -262,7 +272,7 @@ body
   pointer-events: auto
   transition: all 0.3s linear
 
-.sort-dropdown__active ~ .dropdown-overlay
+.sort-dropdown__active ~ .overlay
   display: block
 
 .filter
@@ -324,6 +334,22 @@ body
       background: #1f2020
       transition: all 0.3s ease
 
+.filter-mobile
+  display: none
+  align-items: center
+  gap: 0.8rem
+  padding: 0.8rem 1.2rem
+  border-radius: 0.6rem
+  &__button
+    font-family: Inter
+    font-weight: 500
+    font-size: 1.2rem
+    letter-spacing: 0.06em
+    text-transform: uppercase
+    text-align: right
+    color: #1f2020
+    border: none
+
 .card
   display: flex
   flex-direction: column
@@ -340,6 +366,7 @@ body
     align-items: center
     width: 100%
     height: 27.8rem
+    overflow: hidden
   &__image
     object-fit: contain
   &__content
@@ -385,32 +412,187 @@ body
   height: 31.2rem
   background-color: #000
 
-/* Оверлей (затемнение + блокировка кликов) */
-// .dropdown-overlay
-//   position: fixed
-//   top: 0
-//   left: 0
-//   width: 100%
-//   height: 100%
-//   background: #000
-//   opacity: 0.7
-//   z-index: 1000
-//   display: none
-//   pointer-events: auto
+@media (max-width: 1200px)
 
-/* Дропдаун должен быть выше оверлея */
-// .sort-dropdown
-//   position: relative
-//   z-index: 1001
+  .header__nav
+    position: fixed
+    width: 100%
+    right: 0
+    left: 0
+    border-radius: 2rem
+    transform: translateY(170%)
+    height: 80lvh
+    padding-bottom: 9rem
+    z-index: 9999
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #fff
+    transition: 0.5s ease-in-out
 
-/* Стили для открытого списка */
-// .sort-dropdown__list
-//   display: none
-//   position: absolute
-//   background: #fff
-//   z-index: 1002
+  .header__nav_active
+    transform: translateY(70%)
+    transition: 0.5s ease-in-out
 
-/* Если меню открыто, показываем список и оверлей */
-// .sort-dropdown--open .sort-dropdown__list
-//   display: block
+  .nav
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    height: 24.6rem
+    &__link
+      font-size: 2.4rem
+      line-height: 152%
+      letter-spacing: 0.16em
+    &__item
+      margin: 0
+      align-items: center
 
+  .burger
+    display: block
+    width: 2.4rem
+    z-index: 100
+    opacity: 1
+    transition: 0.3s all
+    cursor: pointer
+    span
+      display: block
+      height: 0.2rem
+      width: 100%
+      background: black
+      margin-bottom: 0.4rem
+      &:last-child
+        margin-bottom: 0
+
+  .btn-close
+    display: block
+    position: absolute
+    width: 4rem
+    height: 4rem
+    top: 1.2rem
+    right: 1.2rem
+
+  .menu__active ~ .overlay
+    display: block
+
+  .stop-scroll
+    overflow: hidden
+
+@media (max-width: 1000px)
+
+  .card
+    width: 15.6rem
+    height: 27rem
+    &__content
+      padding-bottom: 0.5rem
+    &__image-container
+      height: 27rem
+    &__image
+      width: 100%
+      height: 100%
+    &__add-to-cart
+      visibility: visible
+      border-radius: 0.6rem
+      width: 4rem
+      height: 2.4rem
+      background: #f2f2f2
+      font-size: 1.8rem
+
+@media (max-width: 750px)
+
+  .contact
+    display: none
+
+  .count-product
+    display: none
+
+  .catalog
+    display: flex
+    max-width: 192rem
+    width: 100%
+    padding: 4rem 2.4rem
+    &__products
+      gap: 4.3rem 1.5rem
+
+  .filter-mobile
+    display: block
+
+  // .filter
+  //   display: none
+
+  .filter-container
+    position: fixed
+    width: 100%
+    right: 0
+    left: 0
+    border-radius: 2rem
+    transform: translateY(30%)
+    height: 80lvh
+    padding-bottom: 9rem
+    z-index: 9999
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #fff
+    transition: 0.5s ease-in-out
+
+  .filter-container_active
+    transform: translateY(-70%)
+    transition: 0.5s ease-in-out
+
+@media (max-width: 650px)
+
+  .control__btn_search
+    display: none
+
+  .control__item:nth-child(1)
+    margin: 0
+
+
+@media (max-width: 600px)
+
+  .control__btn_account
+    display: none
+
+  .control__item:nth-child(2)
+    margin: 0
+
+  .slider
+    background-image: none
+    height: 10rem
+    padding: 0 2.4rem
+    margin: 4.8rem 0
+    &__content
+      padding: 0
+      margin: 0
+    &__arrow_left
+      display: none
+    &__arrow_right
+      display: none
+    &__text
+      margin: 4.8rem 0
+      align-items: flex-start
+      &_subtitle
+        display: none
+      &_title
+        color: #1f2020
+
+  .breadcrumbs
+    padding: 0
+    margin-left: 0
+    &__item
+      color: #1f2020
+
+  .filter-container
+    transform: translateY(75%)
+
+  .filter-container_active
+    transform: translateY(-15%)
+
+
+@media (max-width: 550px)
+
+  .control__btn_favorite
+    display: none
+
+  .control__item:nth-child(3)
+    margin: 0
