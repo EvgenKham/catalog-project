@@ -1,6 +1,9 @@
 import { getAllPaints }  from './api.js';
-import { renderProductCards, totalAmountProduct }  from './product.js';
-// import { paints } from './data.js';
+import {
+  renderProductCards,
+  totalAmountProduct,
+  filterProduct
+}  from './product.js';
 import {
   addToCart,
   renderCartItems,
@@ -98,10 +101,12 @@ filterMobileButton.addEventListener('click', (e) => {
 });
 
 filterItem.forEach(item => {
-  item.addEventListener('click', () => {
+  item.addEventListener('click', (e) => {
     filter.classList.remove('filter-container_active');
     wrapper.classList.remove('menu__active');
     body.classList.remove('stop-scroll');
+    const category = e.target.id
+    filterProduct(category);
   })
 });
 

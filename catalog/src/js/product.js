@@ -1,5 +1,6 @@
 
 import { addToCart } from './cart.js';
+import { getAllPaints } from './api.js';
 
 const productsContainer = document.querySelector('.catalog__products');
 
@@ -50,4 +51,14 @@ export function renderProductCards(products) {
 export function totalAmountProduct(product) {
   const count = product.length;
   document.querySelector('.count-product').textContent = `${count} товар`;
+}
+
+export async function filterProduct(category) {
+  const allProducts = await getAllPaints();
+  const filteredProducts = allProducts.filter(product => {
+    return product.categories.includes(category);
+  });
+
+  totalAmountProduct(filteredProducts);
+  renderProductCards(filteredProducts);
 }
