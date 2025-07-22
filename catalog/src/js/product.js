@@ -1,6 +1,6 @@
 
 import { addToCart } from './cart.js';
-import { getAllPaints } from './api.js';
+import { getAllPaints, getPaintById } from './api.js';
 
 const productsContainer = document.querySelector('.catalog__products');
 
@@ -59,6 +59,27 @@ export async function filterProduct(category) {
     return product.categories.includes(category);
   });
 
-  totalAmountProduct(filteredProducts);
-  renderProductCards(filteredProducts);
+  return filteredProducts;
+}
+
+export function sortProducts(type, products) {
+  let sortedProducts = [...products];
+  switch(type) {
+    case 'price-desc':
+      sortedProducts.sort((a, b) => b.price - a.price);
+      break;
+    case 'price-asc':
+      sortedProducts.sort((a, b) => a.price - b.price);
+      break;
+    case 'rating-desc':
+      sortedProducts.sort((a, b) => b.rating - a.rating);
+      break;
+    case 'newest':
+      sortedProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      break;
+    default:
+      break;
+  }
+
+  return sortedProducts;
 }

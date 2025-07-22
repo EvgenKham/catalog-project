@@ -2,7 +2,8 @@ import { getAllPaints }  from './api.js';
 import {
   renderProductCards,
   totalAmountProduct,
-  filterProduct
+  filterProduct,
+  sortProducts,
 }  from './product.js';
 import {
   addToCart,
@@ -13,12 +14,12 @@ import {
 } from './cart.js';
 
 const sort = document.querySelector('.sort-dropdown');
-
 const selected = sort.querySelector('.sort-dropdown__selected');
 const current = sort.querySelector('.sort-dropdown__current');
-const list = sort.querySelector('.sort-dropdown__list');
 const items = sort.querySelectorAll('.sort-dropdown__item');
-const overlay = document.querySelector('.overlay');
+
+let currentSort = 'price-desc';
+let currentCategory = 'new';
 
 // Обработчик клика по выбранному элементу
 selected.addEventListener('click', (e) => {
@@ -33,9 +34,9 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Обработчик выбора элемента из списка
+// Обработчик выбора типа сортировки отфильтрованных товаров
 items.forEach(item => {
-  item.addEventListener('click', () => {
+  item.addEventListener('click', async () => {
     current.textContent = item.textContent;
     sort.classList.remove('sort-dropdown__active');
 
@@ -45,16 +46,12 @@ items.forEach(item => {
 
     item.classList.add('sort-dropdown__item_selected');
 
-    // Здесь можно добавить логику сортировки
-    const sortType = item.dataset.value;
-    sortProducts(sortType);
+    currentSort = item.dataset.value;
+    const filtredProducts = await filterProduct(currentCategory);
+    const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
+    renderProductCards(sortedFiltredPaints);
   });
 });
-
-// Пример функции сортировки
-function sortProducts(type) {
-  console.log('Сортировка по:', type);
-}
 
 const menu = document.querySelector('.header__nav');
 const menuItem = document.querySelectorAll('.nav__item');
@@ -63,6 +60,7 @@ const wrapper = document.querySelector('.wrapper');
 const body = document.body;
 const btnCloseMenu = document.querySelector('.btn-close_menu')
 
+// Открытие бургер меню при нажатии на иконку в хедере
 burger.addEventListener('click', (e) => {
   if (e.target === burger || e.target.closest('.burger')){
     menu.classList.toggle('header__nav_active');
@@ -71,6 +69,7 @@ burger.addEventListener('click', (e) => {
   }
 });
 
+// Закрытие бургер меню при нажатии на пункт меню
 menuItem.forEach(item => {
   item.addEventListener('click', () => {
     menu.classList.toggle('header__nav_active');
@@ -79,6 +78,7 @@ menuItem.forEach(item => {
   })
 });
 
+// Обработка события при закрытии бургер меню при нажатии на крестик
 btnCloseMenu.addEventListener('click', (e) => {
   if (e.target === btnCloseMenu || e.target.closest('.btn-close_menu')){
     menu.classList.toggle('header__nav_active');
@@ -92,6 +92,7 @@ const filterItem = document.querySelectorAll('.filter__item');
 const filterMobileButton = document.querySelector('.filter-mobile__button');
 const btnCloseFilter = document.querySelector('.btn-close_filter')
 
+// Открытие окна с фильтрами в мобильной версии
 filterMobileButton.addEventListener('click', (e) => {
   if (e.target === filterMobileButton || e.target.closest('.filter-mobile__button')){
     filter.classList.toggle('filter-container_active');
@@ -100,16 +101,22 @@ filterMobileButton.addEventListener('click', (e) => {
   }
 });
 
+// Обработчик фильтрации товаров и рендеринг в соответсвии с выбранной сортировкой
 filterItem.forEach(item => {
-  item.addEventListener('click', (e) => {
+  item.addEventListener('change', async (e) => {
     filter.classList.remove('filter-container_active');
     wrapper.classList.remove('menu__active');
     body.classList.remove('stop-scroll');
-    const category = e.target.id
-    filterProduct(category);
+
+    currentCategory = e.target.id;
+    const filtredProducts = await filterProduct(currentCategory);
+    const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
+    totalAmountProduct(filtredProducts);
+    renderProductCards(sortedFiltredPaints);
   })
 });
 
+//TODO пофиксить иконку крестика для закрытия окна фильтров в мобильной версии
 btnCloseFilter.addEventListener('click', (e) => {
   if (e.target === btnCloseFilter || e.target.closest('.btn-close_filter')){
     filter.classList.toggle('filter-container_active');
@@ -120,21 +127,17 @@ btnCloseFilter.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', async function() {
   const cartButton = document.querySelector('.control__btn_cart');
-  // const overlay = document.querySelector('.overlay');
-  // const cartSidebar = document.querySelector('.cart-sidebar');
   const cartClose = document.querySelector('.cart-close');
-  // const btnIncrease = document.querySelectorAll('.cart-item__increase');
-  // const btnDecrease = document.querySelectorAll('.cart-item__decrease');
-  // const removeItems = document.querySelectorAll('.cart-item__remove');
   const clearCartBtn = document.querySelector('.cart-clear');
   const addToCartBtn = document.querySelectorAll('.card__add-to-cart');
-
   const cartContainer = document.querySelector('.cart-items');
 
+  //Стартовый рендеринг
   renderCartItems();
-  const paints = await getAllPaints();
-  totalAmountProduct(paints);
-  renderProductCards(paints);
+  const filtredProducts = await filterProduct(currentCategory);
+  totalAmountProduct(filtredProducts);
+  const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
+  renderProductCards(sortedFiltredPaints);
 
   // Открытие корзины
   cartButton.addEventListener('click', (e) => {
@@ -197,6 +200,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     updateCartCount();
   });
 
+  // Обработка кнопки добавления в корзину на карточке товара
   addToCartBtn.forEach(button => {
     button.addEventListener('click', (e) => {
       if (e.target.classList.contains('card__add-to-cart')) {
