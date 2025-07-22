@@ -33,7 +33,7 @@ section.catalog
     .catalog__title
       .filter-mobile
         .filter-mobile__button Фильтры
-      .count-product 412 товаров
+      .count-product
       .sort-dropdown
         .sort-dropdown__selected
           span.sort-dropdown__current Сначала дорогие
@@ -46,5 +46,3 @@ section.catalog
           li.sort-dropdown__item(data-value="newest") Сначала новые
       .overlay
     .catalog__products
-      each product in [{ id: '1', image: 'ProClassic.png', name: 'Краска Wallquest, Brownsone MS90102', price: '4800'},{ id: '2', image: 'Duration Home Interior Acrylic.png', name: 'Краска Wallquest, Brownsone MS90102', price: '6000'},{ id: '3', image: 'Emerald.png', name: 'Краска Wallquest, Brownsone MS90102', price: '5280'},{ id: '4', image: 'Latex Primer.png', name: 'Краска Wallquest, Brownsone MS90102', price: '3400'},{ id: '5', image: 'ProClassic White.png', name: 'Краска Wallquest, Brownsone MS90102', price: '2800'},{ id: '6', image: 'SuperPaint.png', name: 'Краска Wallquest, Brownsone MS90102', price: '2280'},{ id: '7', image: 'Surface Enamel.svg', name: 'Краска Wallquest, Brownsone MS90102', price: '5370'},{ id: '8', image: 'Emerald.png', name: 'Краска Wallquest, Brownsone MS90102', price: '5280'},{ id: '9', image: 'ProClassic White.png', name: 'Краска Wallquest, Brownsone MS90102', price: '2890'},{ id: '10', image: 'ProClassic.png', name: 'Краска Wallquest, Brownsone MS90102', price: '4800'}]
-        +product-card(product.id, product.image, product.name, product.price)

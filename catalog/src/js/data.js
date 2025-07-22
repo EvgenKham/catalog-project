@@ -1,6 +1,5 @@
 export const paints = [
   {
-    id: 1,
     image: 'ProClassic.png',
     name: 'Краска интерьерная ProClassic',
     price: 4800,
@@ -12,7 +11,6 @@ export const paints = [
     createdAt: '2023-10-15'
   },
   {
-    id: 2,
     image: 'Duration Home Interior Acrylic.png',
     name: 'Краска Duration Home Interior',
     price: 5200,
@@ -24,7 +22,6 @@ export const paints = [
     createdAt: '2023-09-12'
   },
   {
-    id: 3,
     image: 'Emerald.png',
     name: 'Краска Emerald премиум',
     price: 6100,
@@ -36,7 +33,6 @@ export const paints = [
     createdAt: '2023-11-05'
   },
   {
-    id: 4,
     image: 'Latex Primer.png',
     name: 'Грунтовка Latex Primer',
     price: 3200,
@@ -48,7 +44,6 @@ export const paints = [
     createdAt: '2023-07-18'
   },
   {
-    id: 5,
     image: 'ProClassic White.png',
     name: 'Краска ProClassic White',
     price: 4500,
@@ -60,7 +55,6 @@ export const paints = [
     createdAt: '2023-08-22'
   },
   {
-    id: 6,
     image: 'SuperPaint.png',
     name: 'Краска SuperPaint универсальная',
     price: 5500,
@@ -72,7 +66,6 @@ export const paints = [
     createdAt: '2023-10-30'
   },
   {
-    id: 7,
     image: 'Surface Enamel.png',
     name: 'Эмаль Surface Enamel',
     price: 6800,
@@ -84,7 +77,6 @@ export const paints = [
     createdAt: '2023-11-15'
   },
   {
-    id: 8,
     image: 'Emerald.png',
     name: 'Краска Emerald для кухни',
     price: 5300,
@@ -96,7 +88,6 @@ export const paints = [
     createdAt: '2023-09-01'
   },
   {
-    id: 9,
     image: 'ProClassic.png',
     name: 'Краска ProClassic для потолков',
     price: 4200,
@@ -108,7 +99,6 @@ export const paints = [
     createdAt: '2023-08-10'
   },
   {
-    id: 10,
     image: 'Duration Home Interior Acrylic.png',
     name: 'Краска Duration для ванной',
     price: 5800,
@@ -120,7 +110,6 @@ export const paints = [
     createdAt: '2023-11-01'
   },
   {
-    id: 11,
     image: 'ProClassic.png',
     name: 'Краска интерьерная ProClassic',
     price: 3450,
@@ -132,7 +121,6 @@ export const paints = [
     createdAt: '2023-11-16'
   },
   {
-    id: 12,
     image: 'Duration Home Interior Acrylic.png',
     name: 'Краска Duration Home Interior',
     price: 5200,
@@ -144,7 +132,6 @@ export const paints = [
     createdAt: '2023-09-12'
   },
   {
-    id: 13,
     image: 'Emerald.png',
     name: 'Краска Emerald премиум',
     price: 5100,
@@ -156,7 +143,6 @@ export const paints = [
     createdAt: '2023-11-05'
   },
   {
-    id: 14,
     image: 'Latex Primer.png',
     name: 'Грунтовка Latex Primer',
     price: 4200,
@@ -168,7 +154,6 @@ export const paints = [
     createdAt: '2023-07-18'
   },
   {
-    id: 15,
     image: 'ProClassic White.png',
     name: 'Краска ProClassic White',
     price: 4500,
@@ -180,7 +165,6 @@ export const paints = [
     createdAt: '2023-08-22'
   },
   {
-    id: 16,
     image: 'SuperPaint.png',
     name: 'Краска SuperPaint универсальная',
     price: 5500,
@@ -192,7 +176,6 @@ export const paints = [
     createdAt: '2023-10-30'
   },
   {
-    id: 17,
     image: 'Surface Enamel.png',
     name: 'Эмаль Surface Enamel',
     price: 6800,
@@ -204,7 +187,6 @@ export const paints = [
     createdAt: '2023-11-15'
   },
   {
-    id: 18,
     image: 'Emerald.png',
     name: 'Краска Emerald для кухни',
     price: 5350,
@@ -216,7 +198,6 @@ export const paints = [
     createdAt: '2023-09-01'
   },
   {
-    id: 19,
     image: 'ProClassic.png',
     name: 'Краска ProClassic для потолков',
     price: 4270,
@@ -228,7 +209,6 @@ export const paints = [
     createdAt: '2023-08-10'
   },
   {
-    id: 20,
     image: 'Duration Home Interior Acrylic.png',
     name: 'Краска Duration для ванной',
     price: 3820,
@@ -240,7 +220,6 @@ export const paints = [
     createdAt: '2023-11-01'
   },
   {
-    id: 21,
     image: 'Surface Enamel.png',
     name: 'Эмаль Surface для радиаторов',
     price: 7200,
