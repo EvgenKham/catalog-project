@@ -21,6 +21,7 @@ body
   margin: 0 auto
   overflow: hidden
 
+// header module
 .header
   display: flex
   justify-content: space-between
@@ -42,9 +43,22 @@ body
     &:last-child
       margin-right: 0
   &__link
-    @extend %menu-item
+    @extend %text-regular
     text-decoration: none
     transition: all 0.3s
+
+  @media (max-width: 1200px)
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    height: 24.6rem
+    &__link
+      font-size: 2.4rem
+      line-height: 152%
+      letter-spacing: 0.16em
+    &__item
+      margin: 0
+      align-items: center
 
 .burger
   display: none
@@ -57,14 +71,10 @@ body
   color: black
   height: 3.2rem
   &__number
-    @extend %number
+    @extend %text-medium
   &__subtitle
-    font-family: Inter
-    font-weight: 400
-    font-size: 1.4rem
-    line-height: 100%
+    @extend %text-regular
     letter-spacing: 0.08em
-    color: #1f2020
     opacity: 0.3
 
 .control
@@ -102,7 +112,7 @@ body
     &_cart
       border: 1px solid black
       cursor: pointer
-      background-color: #7BB899
+      background-color: $select-bg-color
       border-radius: 2rem
 
 .slider
@@ -210,7 +220,7 @@ body
 
   @media (max-width: 768px)
     top: 10rem
-    color: #1f2020
+    color: $base-color
     left: 0
     max-width: 0
     width: 100%
@@ -231,14 +241,10 @@ body
   padding: 2rem 5%
   z-index: 5
   &__item
+    @extend %text-regular
     margin-right: 1.9rem
     list-style: none
-    font-family: Inter
-    font-weight: 400
     font-size: 1rem
-    line-height: 100%
-    letter-spacing: 0.06em
-    text-transform: uppercase
     color: #fff
     opacity: 0.3
     cursor: pointer
@@ -248,7 +254,7 @@ body
   @media (max-width: 768px)
     margin-left: 0
     &__item
-      color: #1f2020
+      color: $base-color
 
 .catalog
   display: flex
@@ -271,24 +277,14 @@ body
     gap: 3.3rem 2.4rem
 
 .count-product
-  font-family: Inter
-  font-weight: 500
-  font-size: 1.2rem
-  letter-spacing: 0.06em
-  text-transform: uppercase
-  color: #1f2020
+  @extend %text-main
   user-select: none
   align-content: center
 
 .sort-dropdown
   position: relative
   display: inline-block
-  font-family: Inter
-  font-weight: 500
-  font-size: 1.2rem
-  letter-spacing: 0.06em
-  text-transform: uppercase
-  color: #1f2020
+  @extend %text-main
   cursor: pointer
   user-select: none
   z-index: 1000
@@ -324,7 +320,7 @@ body
       color: #3b82f6
       background-color: #f0f7ff
     &_selected
-      background: #7bb899
+      background: $select-bg-color
       border-radius: 1rem
   &__active
     .sort-dropdown__list
@@ -369,7 +365,7 @@ body
     &:checked + .filter__label
       background: #fff
       .filter__checkmark
-        background: #7BB899
+        background: $select-bg-color
       .filter__checkmark::before
         transform: translateX(1.6rem)
         opacity: 1
@@ -378,13 +374,9 @@ body
     align-items: center
     padding: 1rem 1.6rem
     border-radius: 0.8rem
-    font-family: Inter
-    font-size: 1.2rem
+    @extend %text-main
     font-weight: 400
     line-height: 100%
-    letter-spacing: 0.06em
-    text-transform: uppercase
-    color: #1f2020
     cursor: pointer
     transition: all 0.3s ease
     background: #fff
@@ -398,7 +390,7 @@ body
     width: 3.6rem
     height: 2.2rem
     border-radius: 1rem
-    background: #f2f2f2
+    background: $bg-color
     margin-right: 1.2rem
     &::before
       content: ''
@@ -408,7 +400,7 @@ body
       width: 1rem
       height: 1rem
       border-radius: 50%
-      background: #1f2020
+      background: $base-color
       transition: all 0.3s ease
 
 .filter-mobile
@@ -418,13 +410,8 @@ body
   padding: 0.8rem 1.2rem
   border-radius: 0.6rem
   &__button
-    font-family: Inter
-    font-weight: 500
-    font-size: 1.2rem
-    letter-spacing: 0.06em
-    text-transform: uppercase
+    @extend %text-main
     text-align: right
-    color: #1f2020
     border: none
 
 .card
@@ -454,23 +441,16 @@ body
     width: 100%
     height: 8rem
   &__name
-    font-family: Inter
-    font-weight: 300
-    font-size: 1.6rem
-    line-height: 112%
-    letter-spacing: 0.02em
-    color: #1f2020
+    @extend %text-card
     margin-bottom: 1.6rem
   &__description
     display: flex
     align-items: center
     justify-content: space-between
   &__price
-    font-family: Inter
+    @extend %text-card
     font-weight: 600
-    font-size: 1.6rem
     line-height: 100%
-    color: #1f2020
     cursor: pointer
   &__add-to-cart
     visibility: hidden
@@ -479,7 +459,7 @@ body
     font-size: 2.6rem
     width: 8rem
     height: 3.2rem
-    background: #7bb899
+    background: $select-bg-color
     transition: all 0.1s ease
     cursor: pointer
   &:hover
@@ -529,18 +509,13 @@ body
   border-bottom: 1px solid #eee
 
 .cart-title
-  font-family: Inter
-  font-weight: 500
-  font-size: 3rem
-  line-height: 88%
-  letter-spacing: -0.04em
-  color: #1f2020
+  @extend %text-cart-title
 
 .cart-close
   background: none
   border-radius: 50%
   cursor: pointer
-  color:  #1f2020
+  color:  $base-color
   padding: 0.5rem
 
 .cart-body
@@ -601,7 +576,7 @@ body
     width: 4rem
     height: 2.4rem
     border: 1px solid #ddd
-    background: #f2f2f2
+    background: $bg-color
     border-radius: 0.4rem
     cursor: pointer
     font-size: 1.6rem
@@ -634,7 +609,7 @@ body
   font-size: 1.8rem
   font-weight: bold
   flex-direction: column
-  color: #1f2020
+  color: $base-color
   &__text
     font-family: Inter
     font-weight: 400
@@ -646,17 +621,12 @@ body
     letter-spacing: -0.02em
 
 .cart-checkout
+  @extend %text-main
   max-width: 24rem
   padding: 1.5rem
-  background: #7bb899
-  color: #1f2020
+  background: $select-bg-color
   border: none
   border-radius: 0.4rem
-  font-size: 1.2rem
-  font-family: Inter
-  font-weight: 500
-  letter-spacing: 0.06em
-  text-transform: uppercase
   text-align: center
   cursor: pointer
 
@@ -687,19 +657,6 @@ body
   .header__nav_active
     transform: translateY(70%)
     transition: 0.5s ease-in-out
-
-  .nav
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    height: 24.6rem
-    &__link
-      font-size: 2.4rem
-      line-height: 152%
-      letter-spacing: 0.16em
-    &__item
-      margin: 0
-      align-items: center
 
   .burger
     display: block
@@ -749,7 +706,7 @@ body
       border-radius: 0.6rem
       width: 4rem
       height: 2.4rem
-      background: #f2f2f2
+      background: $bg-color
       font-size: 1.8rem
 
 @media (max-width: 750px)

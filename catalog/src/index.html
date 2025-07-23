@@ -38,8 +38,8 @@
   font-weight: 500;
   font-style: normal;
 }
-.nav__link {
-  font-family: Inter sans-serif;
+.breadcrumbs__item, .contact__subtitle, .nav__link {
+  font-family: Inter;
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 100%;
@@ -49,11 +49,38 @@
 }
 
 .contact__number {
-  font-family: TT Hoves sans-serif;
+  font-family: Inter;
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 100%;
   letter-spacing: 0.08em;
+  color: #1f2020;
+}
+
+.cart-checkout, .filter-mobile__button, .filter__label, .sort-dropdown, .count-product {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1f2020;
+}
+
+.card__price, .card__name {
+  font-family: Inter;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 112%;
+  letter-spacing: 0.02em;
+  color: #1f2020;
+}
+
+.cart-title {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 88%;
+  letter-spacing: -0.04em;
   color: #1f2020;
 }
 
@@ -113,6 +140,23 @@ body {
   text-decoration: none;
   transition: all 0.3s;
 }
+@media (max-width: 1200px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24.6rem;
+  }
+  .nav__link {
+    font-size: 2.4rem;
+    line-height: 152%;
+    letter-spacing: 0.16em;
+  }
+  .nav__item {
+    margin: 0;
+    align-items: center;
+  }
+}
 
 .burger {
   display: none;
@@ -128,12 +172,7 @@ body {
   height: 3.2rem;
 }
 .contact__subtitle {
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 1.4rem;
-  line-height: 100%;
   letter-spacing: 0.08em;
-  color: #1f2020;
   opacity: 0.3;
 }
 
@@ -181,7 +220,7 @@ body {
 .control__btn_cart {
   border: 1px solid black;
   cursor: pointer;
-  background-color: #7BB899;
+  background-color: #7bb899;
   border-radius: 2rem;
 }
 
@@ -342,12 +381,7 @@ body {
 .breadcrumbs__item {
   margin-right: 1.9rem;
   list-style: none;
-  font-family: Inter;
-  font-weight: 400;
   font-size: 1rem;
-  line-height: 100%;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: #fff;
   opacity: 0.3;
   cursor: pointer;
@@ -389,12 +423,6 @@ body {
 }
 
 .count-product {
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 1.2rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #1f2020;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -404,12 +432,6 @@ body {
 .sort-dropdown {
   position: relative;
   display: inline-block;
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 1.2rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #1f2020;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -506,7 +528,7 @@ body {
   background: #fff;
 }
 .filter__input:checked + .filter__label .filter__checkmark {
-  background: #7BB899;
+  background: #7bb899;
 }
 .filter__input:checked + .filter__label .filter__checkmark::before {
   transform: translateX(1.6rem);
@@ -517,13 +539,8 @@ body {
   align-items: center;
   padding: 1rem 1.6rem;
   border-radius: 0.8rem;
-  font-family: Inter;
-  font-size: 1.2rem;
   font-weight: 400;
   line-height: 100%;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #1f2020;
   cursor: pointer;
   transition: all 0.3s ease;
   background: #fff;
@@ -564,13 +581,7 @@ body {
   border-radius: 0.6rem;
 }
 .filter-mobile__button {
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 1.2rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   text-align: right;
-  color: #1f2020;
   border: none;
 }
 
@@ -606,12 +617,6 @@ body {
   height: 8rem;
 }
 .card__name {
-  font-family: Inter;
-  font-weight: 300;
-  font-size: 1.6rem;
-  line-height: 112%;
-  letter-spacing: 0.02em;
-  color: #1f2020;
   margin-bottom: 1.6rem;
 }
 .card__description {
@@ -620,11 +625,8 @@ body {
   justify-content: space-between;
 }
 .card__price {
-  font-family: Inter;
   font-weight: 600;
-  font-size: 1.6rem;
   line-height: 100%;
-  color: #1f2020;
   cursor: pointer;
 }
 .card__add-to-cart {
@@ -687,15 +689,6 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #eee;
-}
-
-.cart-title {
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 3rem;
-  line-height: 88%;
-  letter-spacing: -0.04em;
-  color: #1f2020;
 }
 
 .cart-close {
@@ -833,14 +826,8 @@ body {
   max-width: 24rem;
   padding: 1.5rem;
   background: #7bb899;
-  color: #1f2020;
   border: none;
   border-radius: 0.4rem;
-  font-size: 1.2rem;
-  font-family: Inter;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   text-align: center;
   cursor: pointer;
 }
@@ -872,21 +859,6 @@ body {
   .header__nav_active {
     transform: translateY(70%);
     transition: 0.5s ease-in-out;
-  }
-  .nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 24.6rem;
-  }
-  .nav__link {
-    font-size: 2.4rem;
-    line-height: 152%;
-    letter-spacing: 0.16em;
-  }
-  .nav__item {
-    margin: 0;
-    align-items: center;
   }
   .burger {
     display: block;
