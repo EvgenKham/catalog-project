@@ -2,12 +2,17 @@
   "name": "catalog",
   "version": "1.0.0",
   "scripts": {
-    "build": "pug src/index.pug src/modules/ -o dist/ -H && sass src/styles/style.sass dist/style.css",
-    "predeploy": "npm run build && cp -r dist/* ./",
-    "deploy": "gh-pages -d ."
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "@vitejs/plugin-legacy": "^7.1.0",
+    "gh-pages": "^4.0.0",
+    "sass": "^1.89.2",
+    "vite": "^7.0.5",
+    "vite-plugin-pug": "^0.4.1"
   },
   "keywords": [],
   "author": "",
