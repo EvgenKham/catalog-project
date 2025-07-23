@@ -1,7 +1,7 @@
 mixin cart-item(image, name, price, quantity)
   .cart-item
     .cart-item__image
-      img(src=`assets/images/products/${image}` alt=name)
+      img(src=`@images/products/${image}` alt=name)
     .cart-item__info
       .cart-item__name= name
       .cart-item__price= price + ' ₽'

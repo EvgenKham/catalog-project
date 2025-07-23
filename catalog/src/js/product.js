@@ -17,11 +17,11 @@ export function renderProductCards(products) {
     card.dataset.id = product.id;
     card.dataset.name = product.name;
     card.dataset.price = product.price;
-    card.dataset.image = `assets/images/products/${product.image}`;
+    card.dataset.image = `images/products/${product.image}`;
 
     card.innerHTML = `
       <div class="card__image-container">
-        <img src="assets/images/products/${product.image}" alt="${product.alt}" class="card__image" loading="lazy">
+        <img src="/assets/images/products/${product.image}" alt="${product.alt}" class="card__image" loading="lazy">
       </div>
       <div class="card__content">
         <p class="card__name">${product.name}</p>

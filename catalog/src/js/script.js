@@ -12,6 +12,117 @@ import {
   updateLocalStorage
 } from './cart.js';
 
+const sort = document.querySelector('.sort-dropdown');
+const selected = sort.querySelector('.sort-dropdown__selected');
+const current = sort.querySelector('.sort-dropdown__current');
+const items = sort.querySelectorAll('.sort-dropdown__item');
+
+let currentSort = 'price-desc';
+let currentCategory = 'new';
+
+// Обработчик клика по выбранному элементу
+selected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sort.classList.toggle('sort-dropdown__active');
+});
+
+// Закрытие при клике вне списка
+document.addEventListener('click', (e) => {
+  if (!sort.contains(e.target)) {
+    sort.classList.remove('sort-dropdown__active');
+  }
+});
+
+// Обработчик выбора типа сортировки отфильтрованных товаров
+items.forEach(item => {
+  item.addEventListener('click', async () => {
+    current.textContent = item.textContent;
+    sort.classList.remove('sort-dropdown__active');
+
+    items.forEach(listItem => {
+      listItem.classList.remove('sort-dropdown__item_selected');
+    });
+
+    item.classList.add('sort-dropdown__item_selected');
+
+    currentSort = item.dataset.value;
+    const filtredProducts = await filterProduct(currentCategory);
+    const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
+    renderProductCards(sortedFiltredPaints);
+  });
+});
+
+const menu = document.querySelector('.header__nav');
+const menuItem = document.querySelectorAll('.nav__item');
+const burger = document.querySelector('.burger');
+const wrapper = document.querySelector('.wrapper');
+const body = document.body;
+const btnCloseMenu = document.querySelector('.btn-close_menu')
+
+// Открытие бургер меню при нажатии на иконку в хедере
+burger.addEventListener('click', (e) => {
+  if (e.target === burger || e.target.closest('.burger')){
+    menu.classList.toggle('header__nav_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+});
+
+// Закрытие бургер меню при нажатии на пункт меню
+menuItem.forEach(item => {
+  item.addEventListener('click', () => {
+    menu.classList.toggle('header__nav_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  })
+});
+
+// Обработка события при закрытии бургер меню при нажатии на крестик
+btnCloseMenu.addEventListener('click', (e) => {
+  if (e.target === btnCloseMenu || e.target.closest('.btn-close_menu')){
+    menu.classList.toggle('header__nav_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+})
+
+const filter = document.querySelector('.filter-container');
+const filterItem = document.querySelectorAll('.filter__item');
+const filterMobileButton = document.querySelector('.filter-mobile__button');
+const btnCloseFilter = document.querySelector('.btn-close_filter')
+
+// Открытие окна с фильтрами в мобильной версии
+filterMobileButton.addEventListener('click', (e) => {
+  if (e.target === filterMobileButton || e.target.closest('.filter-mobile__button')){
+    filter.classList.toggle('filter-container_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+});
+
+// Обработчик фильтрации товаров и рендеринг в соответсвии с выбранной сортировкой
+filterItem.forEach(item => {
+  item.addEventListener('change', async (e) => {
+    filter.classList.remove('filter-container_active');
+    wrapper.classList.remove('menu__active');
+    body.classList.remove('stop-scroll');
+
+    currentCategory = e.target.id;
+    const filtredProducts = await filterProduct(currentCategory);
+    const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
+    totalAmountProduct(filtredProducts);
+    renderProductCards(sortedFiltredPaints);
+  })
+});
+
+//TODO пофиксить иконку крестика для закрытия окна фильтров в мобильной версии
+btnCloseFilter.addEventListener('click', (e) => {
+  if (e.target === btnCloseFilter || e.target.closest('.btn-close_filter')){
+    filter.classList.toggle('filter-container_active');
+    wrapper.classList.toggle('menu__active');
+    body.classList.toggle('stop-scroll');
+  }
+})
 
 document.addEventListener('DOMContentLoaded', async function() {
   const cartButton = document.querySelector('.control__btn_cart');
@@ -19,23 +130,6 @@ document.addEventListener('DOMContentLoaded', async function() {
   const clearCartBtn = document.querySelector('.cart-clear');
   const addToCartBtn = document.querySelectorAll('.card__add-to-cart');
   const cartContainer = document.querySelector('.cart-items');
-  const sort = document.querySelector('.sort-dropdown');
-  const selected = sort.querySelector('.sort-dropdown__selected');
-  const current = sort.querySelector('.sort-dropdown__current');
-  const items = sort.querySelectorAll('.sort-dropdown__item');
-  const menu = document.querySelector('.header__nav');
-  const menuItem = document.querySelectorAll('.nav__item');
-  const burger = document.querySelector('.burger');
-  const wrapper = document.querySelector('.wrapper');
-  const body = document.body;
-  const btnCloseMenu = document.querySelector('.btn-close_menu')
-  const filter = document.querySelector('.filter-container');
-  const filterItem = document.querySelectorAll('.filter__item');
-  const filterMobileButton = document.querySelector('.filter-mobile__button');
-  const btnCloseFilter = document.querySelector('.btn-close_filter')
-
-  let currentSort = 'price-desc';
-  let currentCategory = 'new';
 
   //Стартовый рендеринг
   renderCartItems();
@@ -43,98 +137,6 @@ document.addEventListener('DOMContentLoaded', async function() {
   totalAmountProduct(filtredProducts);
   const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
   renderProductCards(sortedFiltredPaints);
-
-  // Обработчик клика по выбранному элементу
-  selected.addEventListener('click', (e) => {
-    e.stopPropagation();
-    sort.classList.toggle('sort-dropdown__active');
-  });
-
-  // Закрытие при клике вне списка
-  document.addEventListener('click', (e) => {
-    if (!sort.contains(e.target)) {
-      sort.classList.remove('sort-dropdown__active');
-    }
-  });
-
-  // Обработчик выбора типа сортировки отфильтрованных товаров
-  items.forEach(item => {
-    item.addEventListener('click', async () => {
-      current.textContent = item.textContent;
-      sort.classList.remove('sort-dropdown__active');
-
-      items.forEach(listItem => {
-        listItem.classList.remove('sort-dropdown__item_selected');
-      });
-
-      item.classList.add('sort-dropdown__item_selected');
-
-      currentSort = item.dataset.value;
-      const filtredProducts = await filterProduct(currentCategory);
-      const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
-      renderProductCards(sortedFiltredPaints);
-    });
-  });
-
-  // Открытие бургер меню при нажатии на иконку в хедере
-  burger.addEventListener('click', (e) => {
-    if (e.target === burger || e.target.closest('.burger')){
-      menu.classList.toggle('header__nav_active');
-      wrapper.classList.toggle('menu__active');
-      body.classList.toggle('stop-scroll');
-    }
-  });
-
-  // Закрытие бургер меню при нажатии на пункт меню
-  menuItem.forEach(item => {
-    item.addEventListener('click', () => {
-      menu.classList.toggle('header__nav_active');
-      wrapper.classList.toggle('menu__active');
-      body.classList.toggle('stop-scroll');
-    })
-  });
-
-  // Обработка события при закрытии бургер меню при нажатии на крестик
-  btnCloseMenu.addEventListener('click', (e) => {
-    if (e.target === btnCloseMenu || e.target.closest('.btn-close_menu')){
-      menu.classList.toggle('header__nav_active');
-      wrapper.classList.toggle('menu__active');
-      body.classList.toggle('stop-scroll');
-    }
-  })
-
-  // Открытие окна с фильтрами в мобильной версии
-  filterMobileButton.addEventListener('click', (e) => {
-    if (e.target === filterMobileButton || e.target.closest('.filter-mobile__button')){
-      filter.classList.toggle('filter-container_active');
-      wrapper.classList.toggle('menu__active');
-      body.classList.toggle('stop-scroll');
-    }
-  });
-
-  // Обработчик фильтрации товаров и рендеринг в соответсвии с выбранной сортировкой
-  filterItem.forEach(item => {
-    item.addEventListener('change', async (e) => {
-      filter.classList.remove('filter-container_active');
-      wrapper.classList.remove('menu__active');
-      body.classList.remove('stop-scroll');
-
-      currentCategory = e.target.id;
-      const filtredProducts = await filterProduct(currentCategory);
-      const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
-      totalAmountProduct(filtredProducts);
-      renderProductCards(sortedFiltredPaints);
-    })
-  });
-
-  //TODO пофиксить иконку крестика для закрытия окна фильтров в мобильной версии
-  btnCloseFilter.addEventListener('click', (e) => {
-    if (e.target === btnCloseFilter || e.target.closest('.btn-close_filter')){
-      filter.classList.toggle('filter-container_active');
-      wrapper.classList.toggle('menu__active');
-      body.classList.toggle('stop-scroll');
-    }
-  })
 
   //Работа со слайдером
   const heroSwiper = new Swiper('.slider .swiper', {

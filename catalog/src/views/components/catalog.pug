@@ -1,7 +1,7 @@
 mixin product-card(id, image, name, price, alt="image product")
-  .card(data-product data-id=id data-name=name data-price=price data-image=`assets/images/products/${image}`)
+  .card(data-product data-id=id data-name=name data-price=price data-image=`@images/products/${image}`)
     .card__image-container
-      img(src=`assets/images/products/${image}`, alt=alt loading="lazy").card__image
+      img(src=`@images/products/${image}`, alt=alt loading="lazy").card__image
     .card__content
       p.card__name= name
       .card__description
