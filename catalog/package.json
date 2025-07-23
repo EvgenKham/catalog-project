@@ -1,9 +1,13 @@
 {
   "name": "catalog",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pug src/index.pug src/modules/ -o dist/ -H && sass src/styles/style.sass dist/style.css",
+    "predeploy": "npm run build && cp -r dist/* ./",
+    "deploy": "gh-pages -d ."
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   },
   "keywords": [],
   "author": "",
