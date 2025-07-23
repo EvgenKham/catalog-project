@@ -139,6 +139,22 @@ document.addEventListener('DOMContentLoaded', async function() {
   const sortedFiltredPaints = sortProducts(currentSort , filtredProducts);
   renderProductCards(sortedFiltredPaints);
 
+  //Работа со слайдером
+  const heroSwiper = new Swiper('.slider .swiper', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
   // Открытие корзины
   cartButton.addEventListener('click', (e) => {
     if (e.target === burger || e.target.closest('.control__btn_cart')){
@@ -218,7 +234,6 @@ document.addEventListener('DOMContentLoaded', async function() {
   });
 });
 
-//TODO Добавить слайдер
 //TODO Сформировать файлы для деплоя(вручную или добавить какой-нибудь bundler)
 //TODO Минимальная кроссбраузерность (последние версии Chrome, Safari и Firefox)
 

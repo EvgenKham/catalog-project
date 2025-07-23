@@ -1,6 +1,5 @@
 // import { axios } from '../../node_modules/axios/dist/axios.js';
 
-// Базовый URL вашего MockAPI
 const PERONAL_KEY = '687f44aeefe65e5200890472';
 const API_BASE_URL = `https://${PERONAL_KEY}.mockapi.io/api/v1/paints`;
 

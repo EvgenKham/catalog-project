@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>= 'Catalog'</title>
     <link href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <style>@font-face {
   font-family: "Inter";
   src: url("assets/fonts/Inter-Light.ttf");
@@ -104,7 +106,7 @@ body {
   margin-right: 2.4rem;
 }
 .nav__item:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 .nav__link {
   text-decoration: none;
@@ -127,7 +129,7 @@ body {
 .contact__subtitle {
   font-family: Inter;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 100%;
   letter-spacing: 0.08em;
   color: #1f2020;
@@ -144,7 +146,7 @@ body {
   margin-right: 2.4rem;
 }
 .control__item:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 .control__btn {
   cursor: pointer;
@@ -156,7 +158,7 @@ body {
   margin-right: 2.4rem;
 }
 .control__btn:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 .control__btn_search {
   background-image: url(assets/images/search.svg);
@@ -183,42 +185,113 @@ body {
 }
 
 .slider {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  max-width: 192rem;
-  height: 56rem;
-  background-image: url(assets/images/slider-bg.png);
+  position: relative;
+  margin-bottom: 4rem;
 }
-.slider__content {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 21.4rem;
-  padding: 0 5rem;
-  max-width: 192rem;
+@media (max-width: 768px) {
+  .slider {
+    margin-bottom: 0rem;
+  }
+}
+.slider .swiper {
   width: 100%;
-  padding-top: 10rem;
+  height: 56rem;
+}
+@media (max-width: 768px) {
+  .slider .swiper {
+    height: 14rem;
+  }
+}
+.slider .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.slider .swiper-pagination {
+  align-content: center;
+  color: white;
+  width: 13rem;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+  left: 50%;
+  margin-left: -7rem;
+  margin-bottom: 4rem;
+}
+@media (max-width: 768px) {
+  .slider .swiper-pagination {
+    display: none;
+  }
+}
+.slider .swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+  background: white;
+}
+.slider .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .slider .swiper-pagination-bullet {
+    display: none;
+  }
+}
+.slider .swiper-button-next,
+.slider .swiper-button-prev {
+  color: white;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+}
+.slider .swiper-button-next::after,
+.slider .swiper-button-prev::after {
+  font-size: 3.4rem;
+}
+@media (max-width: 768px) {
+  .slider .swiper-button-next,
+  .slider .swiper-button-prev {
+    display: none;
+  }
+}
+.slider .swiper-button-prev {
+  left: 3rem;
+  top: 24rem;
+}
+@media (max-width: 768px) {
+  .slider .swiper-button-prev {
+    display: none;
+  }
+}
+.slider .swiper-button-next {
+  right: 3rem;
+  top: 24rem;
+}
+@media (max-width: 768px) {
+  .slider .swiper-button-next {
+    display: none;
+  }
 }
 
-.arrow_btn {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding-top: 2rem;
+@media (max-width: 768px) {
+  .swiper-wrapper {
+    display: none;
+  }
 }
 
 .slider__text {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  max-width: 472px;
+  position: absolute;
+  z-index: 10;
+  top: 20rem;
+  left: 50%;
+  max-width: 47.2rem;
   width: 100%;
+  margin-left: -23.6rem;
   color: #fff;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 .slider__text_title {
   font-family: Inter;
@@ -227,6 +300,7 @@ body {
   line-height: 66%;
   letter-spacing: -0.04em;
   margin-bottom: 2.4rem;
+  text-align: center;
 }
 .slider__text_subtitle {
   font-family: Inter;
@@ -236,13 +310,33 @@ body {
   letter-spacing: 0.02em;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .slider__text {
+    top: 10rem;
+    color: #1f2020;
+    left: 0;
+    max-width: 0;
+    width: 100%;
+    margin-left: 0;
+    padding: 2rem 0;
+  }
+  .slider__text_title {
+    font-size: 3.6rem;
+    line-height: 88%;
+    margin-bottom: 0;
+  }
+  .slider__text_subtitle {
+    display: none;
+  }
+}
 
 .breadcrumbs {
   display: flex;
+  position: absolute;
   max-width: 192rem;
   width: 100%;
-  margin-left: 12.4rem;
-  padding-top: 2rem;
+  padding: 2rem 5%;
+  z-index: 5;
 }
 .breadcrumbs__item {
   margin-right: 1.9rem;
@@ -259,6 +353,14 @@ body {
 }
 .breadcrumbs__item:last-child {
   margin-right: 0rem;
+}
+@media (max-width: 768px) {
+  .breadcrumbs {
+    margin-left: 0;
+  }
+  .breadcrumbs__item {
+    color: #1f2020;
+  }
 }
 
 .catalog {
@@ -332,7 +434,7 @@ body {
   top: -28%;
   right: 0;
   width: 28rem;
-  margin-top: 8px;
+  margin-top: 0.8rem;
   background: #ffffff;
   border-radius: 1rem;
   opacity: 0;
@@ -600,7 +702,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   color: #1f2020;
-  padding: 5px;
+  padding: 0.5rem;
 }
 
 .cart-body {
@@ -615,12 +717,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .cart-count {
   color: #666;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .cart-clear {
@@ -637,28 +739,28 @@ body {
 .cart-item {
   display: flex;
   align-items: center;
-  padding: 15px 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid #f5f5f5;
 }
 .cart-item__image {
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
+  width: 7rem;
+  height: 7rem;
+  margin-right: 1.5rem;
 }
 .cart-item__image img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 4px;
+  border-radius: 0.4rem;
 }
 .cart-item__info {
   flex: 1;
-  margin-right: 15px;
+  margin-right: 1.5rem;
 }
 .cart-item__name {
-  margin: 0 0 5px 0;
-  font-size: 16px;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.6rem;
 }
 .cart-item__price {
   font-weight: bold;
@@ -667,7 +769,7 @@ body {
 .cart-item__controls {
   display: flex;
   align-items: center;
-  margin-right: 15px;
+  margin-right: 1.5rem;
 }
 .cart-item__decrease, .cart-item__increase {
   width: 4rem;
@@ -685,16 +787,16 @@ body {
   background: #f5f5f5;
 }
 .cart-item__quantity {
-  width: 30px;
+  width: 3rem;
   text-align: center;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 .cart-item__remove {
   background: none;
   border: none;
   color: #999;
   cursor: pointer;
-  padding: 5px;
+  padding: 0.5rem;
 }
 .cart-item__remove:hover {
   color: #333;
@@ -868,9 +970,9 @@ body {
     right: 0;
     left: 0;
     border-radius: 2rem;
-    transform: translateY(30%);
-    height: 80lvh;
-    padding-bottom: 9rem;
+    transform: translateY(100%);
+    height: 100lvh;
+    padding-bottom: 20rem;
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -879,7 +981,7 @@ body {
     transition: 0.5s ease-in-out;
   }
   .filter-container_active {
-    transform: translateY(-70%);
+    transform: translateY(0%);
     transition: 0.5s ease-in-out;
   }
 }
@@ -897,39 +999,6 @@ body {
   }
   .control__item:nth-child(2) {
     margin: 0;
-  }
-  .slider {
-    background-image: none;
-    height: 10rem;
-    padding: 0 2.4rem;
-    margin: 4.8rem 0;
-  }
-  .slider__content {
-    padding: 0;
-    margin: 0;
-  }
-  .slider__arrow_left {
-    display: none;
-  }
-  .slider__arrow_right {
-    display: none;
-  }
-  .slider__text {
-    margin: 4.8rem 0;
-    align-items: flex-start;
-  }
-  .slider__text_subtitle {
-    display: none;
-  }
-  .slider__text_title {
-    color: #1f2020;
-  }
-  .breadcrumbs {
-    padding: 0;
-    margin-left: 0;
-  }
-  .breadcrumbs__item {
-    color: #1f2020;
   }
   .filter-container {
     transform: translateY(75%);
@@ -990,21 +1059,22 @@ body {
           <li class="breadcrumbs__item">Продукты</li>
           <li class="breadcrumbs__item">Краски</li>
         </ul>
-        <div class="slider__content">
-          <div class="slider__arrow_left arrow_btn">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50 20L30 40L50 60" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="assets/images/slider-bg.png"></div>
           </div>
           <div class="slider__text">
             <h2 class="slider__text_title">Краски</h2>
             <p class="slider__text_subtitle">Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!</p>
           </div>
-          <div class="slider__arrow_right arrow_btn">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M30 60L50 40L30 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </section>
       <section class="catalog">
