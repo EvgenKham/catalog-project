@@ -4,41 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalog</title>
-    <link rel="icon" href="/assets/favicon-64.EgC109_7.png">
+    <link rel="icon" href="@images/favicon-64.png">
     <link href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <style>@font-face {
   font-family: "Inter";
-  src: url("/assets/Inter-Light.CdmhCdxZ.ttf");
+  src: url("/assets/fonts/Inter-Light-14LG-y7V.woff2") format("woff2"), url("/assets/fonts/Inter-Light-CdmhCdxZ.ttf") format("ttf");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/assets/Inter-Regular.BOoJxjxf.ttf");
+  src: url("/assets/fonts/Inter-Regular-COLGFB3M.woff2") format("woff2"), url("/assets/fonts/Inter-Regular-BOoJxjxf.ttf") format("ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/assets/Inter-Medium.BEYgZTde.ttf");
+  src: url("/assets/fonts/Inter-Medium-CDhBSFyE.woff2") format("woff2"), url("/assets/fonts/Inter-Medium-BEYgZTde.ttf") format("ttf");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/assets/Inter-SemiBold.ipl4pJhC.ttf");
+  src: url("/assets/fonts/Inter-SemiBold-BAEEcJ4E.woff2") format("woff2"), url("/assets/fonts/Inter-SemiBold-ipl4pJhC.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
 }
-@font-face {
-  font-family: "TT Hoves";
-  src: url("/assets/TT%20Hoves-Medium.Cen1H07m.ttf");
-  font-weight: 500;
-  font-style: normal;
-}
-.breadcrumbs__item, .contact__subtitle, .nav__link {
+.nav__link, .contact__subtitle, .breadcrumbs__item {
   font-family: Inter;
   font-size: 1.4rem;
   font-weight: 400;
@@ -57,7 +51,7 @@
   color: #1f2020;
 }
 
-.cart-checkout, .filter-mobile__button, .filter__label, .sort-dropdown, .count-product {
+.count-product, .sort-dropdown, .filter__label, .filter-mobile__button, .cart-checkout {
   font-family: Inter;
   font-weight: 500;
   font-size: 1.2rem;
@@ -66,7 +60,7 @@
   color: #1f2020;
 }
 
-.card__price, .card__name {
+.card__name, .card__price {
   font-family: Inter;
   font-weight: 300;
   font-size: 1.6rem;
@@ -989,8 +983,8 @@ body {
   }
 }
     </style>
-    <script type="module" crossorigin src="/assets/main-BN54XmG3.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main.B-ptZRA6.css">
+    <script type="module" crossorigin src="/assets/index-NBiQwNp1.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index.BafqxBDAcss">
     <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();window.__vite_is_modern_browser=true</script>
     <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
   </head>
@@ -1038,11 +1032,12 @@ body {
         </ul>
         <div class="swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/assets/slider-bg.DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/slider-bg.DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/slider-bg.DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/slider-bg.DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/slider-bg.DSNynhLZ.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
           </div>
           <div class="slider__text">
             <h2 class="slider__text_title">Краски</h2>
@@ -1134,7 +1129,7 @@ body {
     <div class="overlay"></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-    <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-Bk7wa3IK.js"></script>
-    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/main-legacy-e0di-HJ9.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+    <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-BO8TRtFD.js"></script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy-Cu5C6zva.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
   </body>
 </html>
