@@ -10,25 +10,25 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <style>@font-face {
   font-family: "Inter";
-  src: url("/assets/fonts/Inter-Light-14LG-y7V.woff2") format("woff2"), url("/assets/fonts/Inter-Light-CdmhCdxZ.ttf") format("ttf");
+  src: url("@fonts/Inter-Light.woff2") format("woff2"), url("@fonts/Inter-Light.ttf") format("ttf");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/assets/fonts/Inter-Regular-COLGFB3M.woff2") format("woff2"), url("/assets/fonts/Inter-Regular-BOoJxjxf.ttf") format("ttf");
+  src: url("@fonts/Inter-Regular.woff2") format("woff2"), url("@fonts/Inter-Regular.ttf") format("ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/assets/fonts/Inter-Medium-CDhBSFyE.woff2") format("woff2"), url("/assets/fonts/Inter-Medium-BEYgZTde.ttf") format("ttf");
+  src: url("@fonts/Inter-Medium.woff2") format("woff2"), url("@fonts/Inter-Medium.ttf") format("ttf");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/assets/fonts/Inter-SemiBold-BAEEcJ4E.woff2") format("woff2"), url("/assets/fonts/Inter-SemiBold-ipl4pJhC.ttf") format("ttf");
+  src: url("@fonts/Inter-SemiBold.woff2") format("woff2"), url("@fonts/Inter-SemiBold.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
 }
@@ -195,21 +195,21 @@ body {
   margin-right: 0;
 }
 .control__btn_search {
-  background-image: url("data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M9.16667%2015.8333C12.8486%2015.8333%2015.8333%2012.8486%2015.8333%209.16667C15.8333%205.48477%2012.8486%202.5%209.16667%202.5C5.48477%202.5%202.5%205.48477%202.5%209.16667C2.5%2012.8486%205.48477%2015.8333%209.16667%2015.8333Z'%20stroke='%231F2020'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M17.5%2017.5L13.875%2013.875'%20stroke='%231F2020'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-image: url(/assets/icons/search.svg);
   width: 2rem;
 }
 .control__btn_account {
-  background-image: url("data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_8_30)'%3e%3ccircle%20cx='11'%20cy='23'%20r='8.4'%20stroke='black'%20stroke-width='1.2'/%3e%3ccircle%20cx='11'%20cy='7'%20r='3.4'%20stroke='black'%20stroke-width='1.2'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_8_30'%3e%3crect%20width='22'%20height='22'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+  background-image: url(/assets/icons/profile.svg);
   height: 2.2rem;
 }
 .control__btn_favorite {
-  background-image: url("data:image/svg+xml,%3csvg%20width='20'%20height='18'%20viewBox='0%200%2020%2018'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M10.0009%2017C9.74503%2017.0001%209.49782%2016.9074%209.30525%2016.739C8.57966%2016.1047%207.87674%2015.5067%207.25817%2014.9802C5.65691%2013.7048%204.16127%2012.3023%202.78581%2010.7865C1.67695%209.59183%201.0423%208.03408%201.00085%206.4053C0.976207%204.99164%201.48598%203.62067%202.42845%202.56595C2.88583%202.0681%203.44256%201.67154%204.06275%201.40184C4.68294%201.13214%205.35283%200.995297%206.0292%201.00012C7.05552%200.995406%208.053%201.3392%208.8581%201.97514C9.29424%202.31625%209.6791%202.71815%2010.0009%203.16854C10.3231%202.71841%2010.7082%202.31682%2011.1446%201.97605C11.9489%201.34036%2012.9453%200.99628%2013.9708%201.00012C14.6472%200.995297%2015.3171%201.13214%2015.9372%201.40184C16.5574%201.67154%2017.1142%202.0681%2017.5715%202.56595C18.514%203.62067%2019.0238%204.99164%2018.9991%206.4053C18.9585%208.03374%2018.3249%209.59147%2017.2169%2010.7865C15.8425%2012.3013%2014.3481%2013.7028%2012.7482%2014.9775C12.1287%2015.5049%2011.4267%2016.1029%2010.6975%2016.7399C10.5045%2016.9081%2010.257%2017.0005%2010.0009%2017V17Z'%20stroke='black'%20stroke-width='1.2'/%3e%3c/svg%3e");
+  background-image: url(/assets/icons/heart.svg);
   height: 1.8rem;
   background-position: center;
   background-size: cover;
 }
 .control__btn_search {
-  background-image: url("data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M9.16667%2015.8333C12.8486%2015.8333%2015.8333%2012.8486%2015.8333%209.16667C15.8333%205.48477%2012.8486%202.5%209.16667%202.5C5.48477%202.5%202.5%205.48477%202.5%209.16667C2.5%2012.8486%205.48477%2015.8333%209.16667%2015.8333Z'%20stroke='%231F2020'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M17.5%2017.5L13.875%2013.875'%20stroke='%231F2020'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-image: url(/assets/icons/search.svg);
 }
 .control__btn_cart {
   border: 1px solid black;
@@ -983,15 +983,15 @@ body {
   }
 }
     </style>
-    <script type="module" crossorigin src="/assets/index-NBiQwNp1.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index.BafqxBDAcss">
+    <script type="module" crossorigin src="/assets/index-WjcRhFAw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index.css">
     <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();window.__vite_is_modern_browser=true</script>
     <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
   </head>
   <body>
     <div class="wrapper">
       <header class="header">
-        <div class="burger"><span></span><span></span><span></span></div><a class="header__logo" href="#"><img src="data:image/svg+xml,%3csvg%20width='131'%20height='26'%20viewBox='0%200%20131%2026'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M17.5496%2016.8C16.8296%2019.05%2014.8496%2021.3%2011.3996%2021.3C7.46961%2021.3%204.49961%2018.3%204.49961%2013.5C4.49961%208.69995%207.46961%205.69995%2011.3996%205.69995C14.0696%205.69995%2016.4996%207.19995%2017.5496%2010.05H20.8496C19.9796%206.29995%2016.6496%202.69995%2011.3996%202.69995C5.87961%202.69995%201.34961%207.04995%201.34961%2013.5C1.34961%2019.95%205.87961%2024.3%2011.3996%2024.3C17.0696%2024.3%2020.1296%2020.1%2020.8496%2016.8L17.5496%2016.8Z'%20fill='%231F2020'/%3e%3cpath%20d='M33.3137%2024.3C38.8337%2024.3%2043.3637%2019.95%2043.3637%2013.5C43.3637%207.04995%2038.8337%202.69995%2033.3137%202.69995C27.7937%202.69995%2023.2637%207.04995%2023.2637%2013.5C23.2637%2019.95%2027.7937%2024.3%2033.3137%2024.3ZM33.3137%205.69995C37.2437%205.69995%2040.2137%208.69995%2040.2137%2013.5C40.2137%2018.3%2037.2437%2021.3%2033.3137%2021.3C29.3837%2021.3%2026.4137%2018.3%2026.4137%2013.5C26.4137%208.69995%2029.3837%205.69995%2033.3137%205.69995Z'%20fill='%231F2020'/%3e%3cpath%20d='M46.9566%2024L60.3066%2024V21L50.1066%2021V2.99995L46.9566%202.99995V24Z'%20fill='%231F2020'/%3e%3cpath%20d='M71.1066%2024.3C76.6266%2024.3%2081.1566%2019.95%2081.1566%2013.5C81.1566%207.04995%2076.6266%202.69995%2071.1066%202.69995C65.5866%202.69995%2061.0566%207.04995%2061.0566%2013.5C61.0566%2019.95%2065.5866%2024.3%2071.1066%2024.3ZM71.1066%205.69995C75.0366%205.69995%2078.0066%208.69995%2078.0066%2013.5C78.0066%2018.3%2075.0366%2021.3%2071.1066%2021.3C67.1766%2021.3%2064.2066%2018.3%2064.2066%2013.5C64.2066%208.69995%2067.1766%205.69995%2071.1066%205.69995Z'%20fill='%231F2020'/%3e%3cpath%20d='M84.7496%2024H87.8996V16.5H89.3996L96.8996%2024L100.95%2024L93.4496%2016.5H94.1996C97.6496%2016.5%20100.35%2013.83%20100.35%209.74995C100.35%205.66995%2097.6496%202.99995%2094.1996%202.99995L84.7496%202.99995V24ZM87.8996%2013.5V5.99995L94.0496%205.99995C95.7296%205.99995%2097.1996%207.49995%2097.1996%209.74995C97.1996%2012%2095.7296%2013.5%2094.0496%2013.5H87.8996Z'%20fill='%231F2020'/%3e%3cpath%20d='M103.211%2017.55C103.211%2021.3%20106.211%2024.3%20111.461%2024.3C116.711%2024.3%20119.411%2021.6%20119.411%2018.15C119.411%2014.82%20117.491%2013.05%20113.261%2012.3L109.961%2011.7C107.681%2011.25%20106.811%2010.2%20106.811%208.84995C106.811%207.16995%20108.311%205.69995%20111.161%205.69995C114.161%205.69995%20115.961%207.49995%20115.961%209.44995H119.111C119.111%205.69995%20116.411%202.69995%20111.161%202.69995C106.511%202.69995%20103.661%205.39995%20103.661%208.84995C103.661%2011.73%20105.281%2013.8%20108.611%2014.4L112.661%2015.15C115.061%2015.6%20116.261%2016.62%20116.261%2018.15C116.261%2019.95%20114.911%2021.3%20111.461%2021.3C108.341%2021.3%20106.361%2019.5%20106.361%2017.55L103.211%2017.55Z'%20fill='%231F2020'/%3e%3ccircle%20cx='127'%20cy='6'%20r='4'%20fill='%231F2020'/%3e%3c/svg%3e" alt="Logo"></a>
+        <div class="burger"><span></span><span></span><span></span></div><a class="header__logo" href="#"><img src="/assets/icons/logo.svg" alt="Logo"></a>
         <nav class="header__nav">
           <ul class="nav">
             <li class="nav__item"><a class="nav__link" href="">Продукты</a></li>
@@ -1032,12 +1032,12 @@ body {
         </ul>
         <div class="swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
-            <div class="swiper-slide"><img src="/assets/images/slider-bg-DSNynhLZ.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg.png"></div>
+            <div class="swiper-slide"><img src="/assets/images/slider-bg.png"></div>
           </div>
           <div class="slider__text">
             <h2 class="slider__text_title">Краски</h2>
@@ -1130,6 +1130,6 @@ body {
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
     <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-BO8TRtFD.js"></script>
-    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy-Cu5C6zva.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy-CiXKVR2N.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
   </body>
 </html>
