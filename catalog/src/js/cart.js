@@ -30,6 +30,11 @@ export function updateCartUI() {
 export function renderCartItems() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const cartItemsContainer = document.querySelector('.cart-items');
+    const basePath = process.env.NODE_ENV === 'production'
+    ? '/catalog-project'
+    : ''
+
+  const imagesPath = `${basePath}/assets/images/`
 
   if (!cartItemsContainer) return;
 
@@ -40,7 +45,7 @@ export function renderCartItems() {
     itemElement.className = 'cart-item';
     itemElement.innerHTML = `
       <div class="cart-item__image">
-        <img src="/assets/images/${item.image}" alt="${item.name}">
+        <img src="${imagesPath}${item.image}" alt="${item.name}">
       </div>
       <div class="cart-item__info">
         <div class="cart-item__name">${item.name}</div>

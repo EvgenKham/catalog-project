@@ -7,6 +7,11 @@ const productsContainer = document.querySelector('.catalog__products');
 // Функция для рендеринга карточек
 export function renderProductCards(products) {
 
+  const basePath = process.env.NODE_ENV === 'production'
+    ? '/catalog-project'
+    : ''
+  const imagesPath = `${basePath}/assets/images/`
+
   productsContainer.innerHTML = '';
   const fragment = document.createDocumentFragment();
 
@@ -21,7 +26,7 @@ export function renderProductCards(products) {
 
     card.innerHTML = `
       <div class="card__image-container">
-        <img src="/assets/images/${product.image}" alt="${product.alt}" class="card__image" loading="lazy">
+        <img src="${imagesPath}${product.image}" alt="${product.alt}" class="card__image" loading="lazy">
       </div>
       <div class="card__content">
         <p class="card__name">${product.name}</p>

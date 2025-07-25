@@ -38,7 +38,7 @@ export default defineConfig({
     pugPlugin({
       pretty: true,
       locals: {
-        assetsPath: process.env.NODE_ENV === 'production' ?  'https://evgenkham.github.io/catalog-project/' : '/assets'
+        assetsPath: process.env.NODE_ENV === 'production' ? '/catalog-project/assets' : '/assets'
       }
     }),
     legacy({
