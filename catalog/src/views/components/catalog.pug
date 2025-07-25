@@ -1,0 +1,48 @@
+mixin product-card(id, image, name, price, alt="image product")
+  .card(data-product data-id=id data-name=name data-price=price data-image=`@images/${image}`)
+    .card__image-container
+      img(src=`@images/${image}`, alt=alt loading="lazy").card__image
+    .card__content
+      p.card__name= name
+      .card__description
+        p.card__price= `${price} ₽`
+        button.card__add-to-cart(
+          type="button"
+          aria-label="Add to cart"
+        ) +
+
+section.catalog
+  .filter-container
+    .filter
+      each item in [{id: 'new', label: 'Новинки'}, {id: 'in-stock', label: 'Есть в наличии'}, {id: 'contract', label: 'Контрактные'}, {id: 'exclusive', label: 'Эксклюзивные'}, {id: 'sale', label: 'Распродажа'}]
+        .filter__item
+          input.filter__input(
+            type="radio"
+            id=item.id
+            name="category"
+            value=item.id
+            checked=(item.id === 'new'))
+          label.filter__label(for=item.id)
+            span.filter__checkmark
+            span.filter__text= item.label
+    .btn-close.btn-close_filter
+      svg(viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M30 10L10 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+        path(d="M10 10L30 30" stroke="#181C29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+  .catalog__main
+    .catalog__title
+      .filter-mobile
+        .filter-mobile__button Фильтры
+      .count-product
+      .sort-dropdown
+        .sort-dropdown__selected
+          span.sort-dropdown__current Сначала дорогие
+          svg.sort-dropdown__icon(width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg")
+            path(d="M5 7.5L8.4641 3L1.5359 3L5 7.5Z" fill="#202020")
+        ul.sort-dropdown__list
+          li.sort-dropdown__item.sort-dropdown__item_selected(data-value="price-desc") Сначала дорогие
+          li.sort-dropdown__item(data-value="price-asc") Сначала недорогие
+          li.sort-dropdown__item(data-value="popular") Сначала популярные
+          li.sort-dropdown__item(data-value="newest") Сначала новые
+      .overlay
+    .catalog__products

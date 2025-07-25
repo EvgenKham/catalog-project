@@ -1,0 +1,27 @@
+{
+  "name": "catalog",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist -b gh-pages -t true"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^7.1.0",
+    "gh-pages": "^4.0.0",
+    "sass": "^1.89.2",
+    "vite": "^7.0.5",
+    "vite-plugin-pug": "^0.4.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "pug": "^3.0.3",
+    "swiper": "^11.2.10"
+  }
+}
