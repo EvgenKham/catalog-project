@@ -40,7 +40,7 @@ export function renderCartItems() {
     itemElement.className = 'cart-item';
     itemElement.innerHTML = `
       <div class="cart-item__image">
-        <img src="assets/images/products/${item.image}" alt="${item.name}">
+        <img src="/assets/images/${item.image}" alt="${item.name}">
       </div>
       <div class="cart-item__info">
         <div class="cart-item__name">${item.name}</div>

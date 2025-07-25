@@ -1,34 +1,28 @@
 @font-face {
   font-family: "Inter";
-  src: url("assets/fonts/Inter-Light.ttf");
+  src: url("@fonts/Inter-Light.woff2") format("woff2"), url("@fonts/Inter-Light.ttf") format("ttf");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("assets/fonts/Inter-Regular.ttf");
+  src: url("@fonts/Inter-Regular.woff2") format("woff2"), url("@fonts/Inter-Regular.ttf") format("ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("assets/fonts/Inter-Medium.ttf");
+  src: url("@fonts/Inter-Medium.woff2") format("woff2"), url("@fonts/Inter-Medium.ttf") format("ttf");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("assets/fonts/Inter-SemiBold.ttf");
+  src: url("@fonts/Inter-SemiBold.woff2") format("woff2"), url("@fonts/Inter-SemiBold.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
 }
-@font-face {
-  font-family: "TT Hoves";
-  src: url("assets/fonts/TT Hoves-Medium.ttf");
-  font-weight: 500;
-  font-style: normal;
-}
-.breadcrumbs__item, .contact__subtitle, .nav__link {
+.nav__link, .contact__subtitle, .breadcrumbs__item {
   font-family: Inter;
   font-size: 1.4rem;
   font-weight: 400;
@@ -47,7 +41,7 @@
   color: #1f2020;
 }
 
-.cart-checkout, .filter-mobile__button, .filter__label, .sort-dropdown, .count-product {
+.count-product, .sort-dropdown, .filter__label, .filter-mobile__button, .cart-checkout {
   font-family: Inter;
   font-weight: 500;
   font-size: 1.2rem;
@@ -56,7 +50,7 @@
   color: #1f2020;
 }
 
-.card__price, .card__name {
+.card__name, .card__price {
   font-family: Inter;
   font-weight: 300;
   font-size: 1.6rem;
@@ -191,21 +185,21 @@ body {
   margin-right: 0;
 }
 .control__btn_search {
-  background-image: url(assets/images/search.svg);
+  background-image: url(/assets/icons/search.svg);
   width: 2rem;
 }
 .control__btn_account {
-  background-image: url(assets/images/profile.svg);
+  background-image: url(/assets/icons/profile.svg);
   height: 2.2rem;
 }
 .control__btn_favorite {
-  background-image: url(assets/images/heart.svg);
+  background-image: url(/assets/icons/heart.svg);
   height: 1.8rem;
   background-position: center;
   background-size: cover;
 }
 .control__btn_search {
-  background-image: url(assets/images/search.svg);
+  background-image: url(/assets/icons/search.svg);
 }
 .control__btn_cart {
   border: 1px solid black;

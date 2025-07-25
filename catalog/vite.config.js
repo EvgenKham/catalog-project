@@ -5,34 +5,40 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production'
+    ? '/catalog-project/'
+    : '/',
   root: 'src',
-  publicDir:  '../public',
+  publicDir: path.resolve(__dirname, 'public'),
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@fonts': fileURLToPath(new URL('./src/assets/fonts', import.meta.url)),
+    }
+  },
   build: {
     outDir: '../dist',
     assetsDir: 'assets',
     emptyOutDir: true,
     assetsInlineLimit: 4096,
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'src/index.html')
-      },
+      input: path.resolve(__dirname, 'src/index.html'),
       output: {
-        assetFileNames: 'assets/[name].[hash].[ext]'
+        assetFileNames: (assetInfo) => {
+          const ext = path.extname(assetInfo.name).substring(1)
+          if (/ttf|woff2?|eot|otf/i.test(ext)) {
+            return 'assets/fonts/[name]-[hash][extname]'
+          }
+          return 'assets/[name].[hash][ext]'
+        }
       },
-    }
-  },
-  resolve: {
-    alias: {
-      '@assets': path.resolve(__dirname, 'src/assets'),
-      '@images': path.resolve(__dirname, 'src/assets/images')
     }
   },
   plugins: [
     pugPlugin({
       pretty: true,
       locals: {
-        assetsPath: '/assets',
-        imagesPath: '/assets/images'
+        assetsPath: process.env.NODE_ENV === 'production' ? '/catalog-project/assets' : '/assets'
       }
     }),
     legacy({
@@ -40,6 +46,7 @@ export default defineConfig({
     })
   ],
   server: {
-    port: 3000
+    port: 3000,
+    open: true
   }
 })

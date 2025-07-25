@@ -1,3 +1,4 @@
+import '../styles/style.sass'
 import {
   renderProductCards,
   totalAmountProduct,
